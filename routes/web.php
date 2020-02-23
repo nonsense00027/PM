@@ -19,3 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@store');
+
+Route::get('/accountabilities', 'AccountabilityController@index')->name('home');
+Route::post('/accountabilities', 'AccountabilityController@store');
+// Route::resource('/accountabilities', 'AccountabilityController');
+Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');

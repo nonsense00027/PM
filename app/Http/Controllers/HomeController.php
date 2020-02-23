@@ -41,8 +41,7 @@ class HomeController extends Controller
         'domain_pass'=>'required',
         'ip_address'=>'required',
         'mac_address'=>'required',
-        'email'=>'required',
-        'name'=>'required'
+        'email'=>'required'
       ]);
 
     //   dd($request);
