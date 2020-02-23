@@ -17,7 +17,7 @@ class AccountabilityController extends Controller
     public function store(Request $request)
     {
         // dd($request->designation);
-      $dat169.0237a = request()->validate([
+      $data = request()->validate([
         'name'=>'required',
         'designation'=>'required',
         'computer_name'=>'required',
