@@ -17,9 +17,11 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
   <!-- Data Table link css-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.semanticui.min.css"> -->
   
@@ -807,8 +809,8 @@
     });
 
 </script>
-  <!-- Export Button -->
-  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   
   <script src="{{ asset('personal/poppermin.js') }}">
     $(function () {
@@ -817,7 +819,6 @@
   </script>
 
   <!-- Print Button -->
-  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
   
   @include('sweetalert::alert')
 </body>
