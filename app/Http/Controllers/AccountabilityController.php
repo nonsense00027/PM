@@ -11,7 +11,7 @@ class AccountabilityController extends Controller
     public function index()
     {
         $accountabilities = \App\Accountability::all();
-        return view('accountability.index', compact('accountabilities'));
+        return view('accountability.index2', compact('accountabilities'));
     }
 
     public function store(Request $request)
