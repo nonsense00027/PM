@@ -85,18 +85,19 @@
               <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
                 <thead class="bg-primary text-white">
                   <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Computer Name</th>
-                    <th>Location</th>
-                    <th>Local User</th>
+                    <th class="col-0">ID</th>
+                    <th class="col-12">Name</th>
+                    <th>Company</th>
+                    <!-- <th>Designation</th>
+                    <th>Computer Name</th> -->
+                    <th  class="col-3">Location</th>
+                    <!-- <th>Local User</th>
                     <th>Local Password</th>
                     <th>Domain Account</th>
                     <th>Domain Password</th>
                     <th>IP Address</th>
                     <th>MAC Address</th>
-                    <th>Email</th>
+                    <th>Email</th> -->
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -104,16 +105,17 @@
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Designation</th>
-                    <th>Computer Name</th>
+                    <!-- <th>Designation</th> -->
+                    <th>Company</th>
+                    <!-- <!-- <th>Computer Name</th> -->
                     <th>Location</th>
-                    <th>Local User</th>
+                    <!-- <th>Local User</th>
                     <th>Local Password</th>
                     <th>Domain Account</th>
                     <th>Domain Password</th>
                     <th>IP Address</th>
                     <th>MAC Address</th>
-                    <th>Email</th>
+                    <th>Email</th> -->
                     <th>Actions</th>
                   </tr>
                 </tfoot>
@@ -122,28 +124,31 @@
                   <tr>
                     <td>{{$accountability->id}}</td>
                     <td>{{$accountability->name}}</td>
-                    <td>{{$accountability->designation}}</td>
-                    <td>{{$accountability->computer_name}}</td>
-                    <td>{{$accountability->location}}</td>
-                    <td>{{$accountability->local_user}}</td>
+                    <!-- TD FOR COMPANY -->
+                    <td>Company</td>
+                    <td>Davao City</td>
+                    <!-- <td>{{$accountability->designation}}</td>
+                    <td>{{$accountability->computer_name}}</td> -->
+                    <!-- <td>{{$accountability->location}}</td> -->
+                    <!-- <td>{{$accountability->local_user}}</td>
                     <td>{{$accountability->local_password}}</td>
                     <td>{{$accountability->domain_acc}}</td>
                     <td>{{$accountability->domain_pass}}</td>
                     <td>{{$accountability->ip_address}}</td>
                     <td>{{$accountability->mac_address}}</td>
-                    <td>{{$accountability->email}}</td>
+                    <td>{{$accountability->email}}</td> -->
                     <!-- <td><a href="/accountabilities/{{$accountability->id}}">Hi</a></td> -->
                     <!-- <td><a href="#edit" class="nav-link" role="tab" data-toggle="tab">Edit</a></td> -->
                     <td>
                       <!-- EDIT FUNCTION  -->
                       <a href="#" class="edit mx-3" data-toggle="tooltip" title="Edit user information" data-placement="left" >
-                        <i class="fas fa-pen"title="Edit user information"></i>
+                        <i class="fas fa-pen" title="Edit user information"></i>
                       </a>
                       <!-- LOGS FUNCTION -->
                       <!-- <a href="#" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
                       </a> -->
-                      <a href="#" data-target="#sampleModal-{{$accountability->id}}" class="log mx-3"  data-toggle="modal" title="View logs" >
+                      <a href="#"  data-target="#sampleModal-{{$accountability->id}}" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
                       </a>
                       <!-- LOGS MODAL -->
