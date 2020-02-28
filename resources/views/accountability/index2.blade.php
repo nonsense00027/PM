@@ -140,11 +140,52 @@
                         <i class="fas fa-pen"title="Edit user information"></i>
                       </a>
                       <!-- LOGS FUNCTION -->
-                      <a href="" data-target="logsModal" class="log mx-3"  data-toggle="tooltip" title="View logs" data-placement="left" >
+                      <!-- <a href="#" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
+                        <i class="fas fa-info" title="View logs"></i>
+                      </a> -->
+                      <a href="#" data-target="#sampleModal-{{$accountability->id}}" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
                       </a>
+                      <!-- LOGS MODAL -->
+                      <div class="modal fade" id="sampleModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Logs</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <td>Id</td>
+                                    <td>Remarks</td>
+                                    <td>Date</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  @foreach($logs as $log)
+                                    @if($log->id == $accountability->id)
+                                    <tr>
+                                      <td>{{$log->id}}</td>
+                                      <td>{{$log->remark}}</td>
+                                      <td>{{$log->created_at}}</td>
+                                    </tr>
+                                    @endif
+                                  @endforeach
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                    
+                      <!-- WORKING -->
+                      <!-- <a href="#" onclick="onClickModalRemark('{{$accountability->id}}')" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
+                        <i class="fas fa-info" title="View logs"></i>
+                      </a> -->
 
                     </td>
                   </tr>
@@ -230,40 +271,6 @@
 @endsection
 
 @section('modal')
-<!-- LOGS MODAL -->
-<div class="modal fade" id="logsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="logsModal">Modal title</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <table>
-                                <thead>
-                                  <tr>
-                                    <td>Id</td>
-                                    <td>Remarks</td>
-                                    <td>Date</td>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                </tbody>
-                              </table>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END OF MODAL -->
-
-
 
 <!-- Edit Modal -->
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -280,75 +287,75 @@
       @method('PATCH')
       <div class="modal-body">
             <div class="form-row">
-                      <div class="col-md-1 mb-3">
-                        <label>ID</label>
-                        <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" required>
-                      </div>
+              <div class="col-md-1 mb-3">
+                <label>ID</label>
+                <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" required>
+              </div>
 
-                      <div class="col-md-4 mb-3">
-                        <label>Full Name</label>
-                        <input type="text" name="name" id="editname" class="form-control bg-outline-success" required>
-                      </div>
+              <div class="col-md-4 mb-3">
+                <label>Full Name</label>
+                <input type="text" name="name" id="editname" class="form-control bg-outline-success" required>
+              </div>
 
-                      <div class="col-md-4 mb-3">
-                        <label>Designation</label>
-                        <input type="text" name="designation" id="editdesignation" class="form-control" required>
-                      </div>
+              <div class="col-md-4 mb-3">
+                <label>Designation</label>
+                <input type="text" name="designation" id="editdesignation" class="form-control" required>
+              </div>
 
-                      <div class="col-md-3 mb-3">
-                        <label>Computer Name</label>
-                        <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
-                      </div>
-                    </div>
+              <div class="col-md-3 mb-3">
+                <label>Computer Name</label>
+                <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
+              </div>
+            </div>
 
-                    <div class="form-row">
-                      <div class="col-md-5 mb-3">
-                        <label>Location</label>
-                        <input type="text" name="location" id="editlocation" class="form-control" required>
-                      </div>
+            <div class="form-row">
+              <div class="col-md-5 mb-3">
+                <label>Location</label>
+                <input type="text" name="location" id="editlocation" class="form-control" required>
+              </div>
 
-                      <div class="col-md-3 mb-3">
-                        <label>Local User</label>
-                        <input type="text" name="local_user" id="editlocal_user" class="form-control" required>
-                      </div>
+              <div class="col-md-3 mb-3">
+                <label>Local User</label>
+                <input type="text" name="local_user" id="editlocal_user" class="form-control" required>
+              </div>
 
-                      <div class="col-md-4 mb-3">
-                        <label>Local Password</label>
-                        <input type="text" name="local_password" id="editlocal_password" class="form-control" required>
-                      </div>
-                    </div>
+              <div class="col-md-4 mb-3">
+                <label>Local Password</label>
+                <input type="text" name="local_password" id="editlocal_password" class="form-control" required>
+              </div>
+            </div>
 
-                    <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label>Domain Account</label>
-                        <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
-                      </div>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label>Domain Account</label>
+                <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
+              </div>
 
-                      <div class="col-md-3 mb-3">
-                        <label>Domain Password</label>
-                        <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
-                      </div>
+              <div class="col-md-3 mb-3">
+                <label>Domain Password</label>
+                <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
+              </div>
 
-                      <div class="col-md-3 mb-3">
-                        <label>IP Address</label>
-                        <input type="text" name="ip_address" id="editip_address" class="form-control" required>
-                      </div>
+              <div class="col-md-3 mb-3">
+                <label>IP Address</label>
+                <input type="text" name="ip_address" id="editip_address" class="form-control" required>
+              </div>
 
-                      <div class="col-md-3 mb-3">
-                        <label>MAC Address</label>
-                        <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
-                      </div>
-                    </div>
+              <div class="col-md-3 mb-3">
+                <label>MAC Address</label>
+                <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
+              </div>
+            </div>
 
-                    <div class="form-row">
-                        <label>Email</label>
-                        <input type="text" name="email" id="editemail" class="form-control" required>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <label>Remarks</label>
-                        <input type="text" name="remark" id="remark" class="form-control" required>
-                    </div>
+            <div class="form-row">
+                <label>Email</label>
+                <input type="text" name="email" id="editemail" class="form-control" required>
+            </div>
+            <br>
+            <div class="form-row">
+                <label>Remarks</label>
+                <input type="text" name="remark" id="remark" class="form-control" required>
+            </div>
         </div>
       
         <div class="modal-footer">
@@ -360,6 +367,37 @@
   </div>
 </div>
 
+<!-- WORKING Sample Modal -->
+<!-- <div class="modal fade" id="sampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Remarks</td>
+              <td>Date</td>
+            </tr>
+          </thead>
+          <tbody id="remarktable">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 @endsection
 
 @section('script')
@@ -374,6 +412,7 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Data Table scripts-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script>
@@ -381,6 +420,7 @@
         $('#myDataTable').DataTable();
     } );
   </script>
+
 
 <!-- Edit Script -->
 <script type="text/javascript">
@@ -417,6 +457,7 @@
 
 <!-- Log Script -->
 <!-- <script type="text/javascript">
+
     $(document).ready(function(){
         var table = $('#myDataTable').DataTable();
         table.on('click', '.log', function(){
@@ -426,27 +467,58 @@
             }
 
             var data = table.row($tr).data();
-            console.log(data);
-            $('#editid').val(data[0]);
-            $('#editname').val(data[1]);
-            $('#editdesignation').val(data[2]);
-            $('#editcomputer_name').val(data[3]);
-            $('#editlocation').val(data[4]);
-            $('#editlocal_user').val(data[5]);
-            $('#editlocal_password').val(data[6]);
-            $('#editdomain_acc').val(data[7]);
-            $('#editdomain_pass').val(data[8]);
-            $('#editip_address').val(data[9]);
-            $('#editmac_address').val(data[10]);
-            $('#editemail').val(data[11]);
+            // console.log(data);
+            // $('#editid').val(data[0]);
+            // $('#editname').val(data[1]);
+            // $('#editdesignation').val(data[2]);
+            // $('#editcomputer_name').val(data[3]);
+            // $('#editlocation').val(data[4]);
+            // $('#editlocal_user').val(data[5]);
+            // $('#editlocal_password').val(data[6]);
+            // $('#editdomain_acc').val(data[7]);
+            // $('#editdomain_pass').val(data[8]);
+            // $('#editip_address').val(data[9]);
+            // $('#editmac_address').val(data[10]);
+            // $('#editemail').val(data[11]);
 
-            $('#editForm').attr('action', '/accountabilities/'+data[0]);
-            $('#exampleModal').modal('show');
+            // $('#editForm').attr('action', '/accountabilities/'+data[0]);
+            $('#sampleModal').modal('show');
         });
     });
 
 </script> -->
+
+
 <!-- End of Log Script -->
+<script>
+
+
+
+function onClickModalRemark(id){
+  $('#remarktable').empty();
+  axios.get('/remarks/' + id)
+  .then(function (response) {
+    for(var i=0;i<response.data.length;i++){
+      var row = '<tr>'
+      + '<td>'+ `${response.data[i].id}` + '</td>'
+      + '<td>'+ `${response.data[i].remark}` + '</td>'
+      + '<td>'+ `${response.data[i].created_at}` + '</td>'
+      +'</tr>';
+      $('#remarktable').append(row);
+    }
+    // $('#remarktable').append(response->id);
+      // console.log(response.data);
+    
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+  });
+}
+
+</script>
 
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>

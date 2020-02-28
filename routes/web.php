@@ -36,3 +36,5 @@ Route::get('/logout', function(){
         Auth::logout();
         return redirect('/');
 });
+
+Route::get('/remarks/{id}', 'ModalController@remarks');
