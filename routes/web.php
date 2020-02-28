@@ -25,7 +25,7 @@ Route::post('/accountabilities', 'AccountabilityController@store');
 // Route::resource('/accountabilities', 'AccountabilityController');
 Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');
 
-Route::get('/inventories', 'InventoryController@index')->name('home');
+Route::get('/inventories', 'InventoryController@index');
 
 Route::get('/register', 'HomeController@register');
 Route::post('/register', 'HomeController@store');

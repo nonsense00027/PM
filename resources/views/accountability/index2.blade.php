@@ -83,7 +83,7 @@
           <div role="tabpanel" class="tab-pane active" id="list">
             <div class="table-responsive">
               <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
-                <thead>
+                <thead class="bg-primary text-white">
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -100,7 +100,7 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tfoot>
+                <tfoot class="bg-primary text-white">
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -140,31 +140,11 @@
                         <i class="fas fa-pen"title="Edit user information"></i>
                       </a>
                       <!-- LOGS FUNCTION -->
-                      <a href="" data-target="logsModal" class="edit mx-3"  data-toggle="tooltip" title="View logs" data-placement="left" >
+                      <a href="" data-target="logsModal" class="log mx-3"  data-toggle="tooltip" title="View logs" data-placement="left" >
                         <i class="fas fa-info" title="View logs"></i>
                       </a>
 
-                      <!-- LOGS MODAL -->
-                      <div class="modal fade" id="logsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="logsModal">Modal title</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              ...
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>  
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END OF MODAL -->
+                    
 
                     </td>
                   </tr>
@@ -250,11 +230,42 @@
 @endsection
 
 @section('modal')
+<!-- LOGS MODAL -->
+<div class="modal fade" id="logsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="logsModal">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <td>Id</td>
+                                    <td>Remarks</td>
+                                    <td>Date</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>  
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END OF MODAL -->
 
 
 
-
-<!-- Modal -->
+<!-- Edit Modal -->
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -269,6 +280,11 @@
       @method('PATCH')
       <div class="modal-body">
             <div class="form-row">
+                      <div class="col-md-1 mb-3">
+                        <label>ID</label>
+                        <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" required>
+                      </div>
+
                       <div class="col-md-4 mb-3">
                         <label>Full Name</label>
                         <input type="text" name="name" id="editname" class="form-control bg-outline-success" required>
@@ -279,7 +295,7 @@
                         <input type="text" name="designation" id="editdesignation" class="form-control" required>
                       </div>
 
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Computer Name</label>
                         <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
                       </div>
@@ -328,11 +344,11 @@
                         <label>Email</label>
                         <input type="text" name="email" id="editemail" class="form-control" required>
                     </div>
-
-                    <!-- <div class="form-row">
+                    <br>
+                    <div class="form-row">
                         <label>Remarks</label>
-                        <input type="textarea" name="remarks" id="remark" class="form-control" required>
-                    </div> -->
+                        <input type="text" name="remark" id="remark" class="form-control" required>
+                    </div>
         </div>
       
         <div class="modal-footer">
@@ -366,6 +382,7 @@
     } );
   </script>
 
+<!-- Edit Script -->
 <script type="text/javascript">
     $(document).ready(function(){
         var table = $('#myDataTable').DataTable();
@@ -377,6 +394,7 @@
 
             var data = table.row($tr).data();
             console.log(data);
+            $('#editid').val(data[0]);
             $('#editname').val(data[1]);
             $('#editdesignation').val(data[2]);
             $('#editcomputer_name').val(data[3]);
@@ -395,6 +413,41 @@
     });
 
 </script>
+<!-- End of Edit Script -->
+
+<!-- Log Script -->
+<!-- <script type="text/javascript">
+    $(document).ready(function(){
+        var table = $('#myDataTable').DataTable();
+        table.on('click', '.log', function(){
+            $tr = $(this).closest('tr');
+            if($($tr).hasClass('child')){
+                $tr = $tr.prev('.parent');
+            }
+
+            var data = table.row($tr).data();
+            console.log(data);
+            $('#editid').val(data[0]);
+            $('#editname').val(data[1]);
+            $('#editdesignation').val(data[2]);
+            $('#editcomputer_name').val(data[3]);
+            $('#editlocation').val(data[4]);
+            $('#editlocal_user').val(data[5]);
+            $('#editlocal_password').val(data[6]);
+            $('#editdomain_acc').val(data[7]);
+            $('#editdomain_pass').val(data[8]);
+            $('#editip_address').val(data[9]);
+            $('#editmac_address').val(data[10]);
+            $('#editemail').val(data[11]);
+
+            $('#editForm').attr('action', '/accountabilities/'+data[0]);
+            $('#exampleModal').modal('show');
+        });
+    });
+
+</script> -->
+<!-- End of Log Script -->
+
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   

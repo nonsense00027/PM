@@ -1,7 +1,7 @@
 @extends('layouts.layouts')
 @section('sidebar')
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -75,6 +75,7 @@
             <a href="#add" class="nav-link" role="tab" data-toggle="tab">Add</a>
         </li>
 @endsection
+<<<<<<< HEAD
             @section('tabcontent')  
               <div class="table-responsive">
                     <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
@@ -1527,6 +1528,133 @@
                         </tr>
                       </tbody>
                     </table>
+=======
+            @section('tabcontent')
+            <div class="tab-content">
+                <!-- Tab 1 content list -->
+                <div  role="tabpanel" class="tab-pane active" id="list">
+                  <div class="table-responsive">
+                      <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
+                        <thead class="bg-primary text-white">
+                          <tr>
+                            <th>Motherboard</th>
+                            <th>CPU</th>
+                            <th>HDD</th>
+                            <th>Memory</th>
+                            <th>Monitor</th>
+                            <th>Case</th>
+                            <th>Keyboard</th>
+                            <th>Mouse</th>
+                            <th>Video Card</th>
+                            <th>Power Supply</th>
+                            <th>Printer</th>
+                            <th>Telephone</th>
+                          </tr>
+                        </thead>
+                        <tfoot class="bg-primary text-white">
+                          <tr>
+                            <th>Motherboard</th>
+                            <th>CPU</th>
+                            <th>HDD</th>
+                            <th>Memory</th>
+                            <th>Monitor</th>
+                            <th>Case</th>
+                            <th>Keyboard</th>
+                            <th>Mouse</th>
+                            <th>Video Card</th>
+                            <th>Power Supply</th>
+                            <th>Printer</th>
+                            <th>Telephone</th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Heroku</td>
+                            <td>123admin</td>
+                            <td>192.168.1.0</td>
+                            <td>NONE</td>
+                            <td>NONE</td>
+                            <td>6985524</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              <!-- End of Tab 1 -->
+              <!-- Start of Tab 2 -->
+                <div role="tabpanel" class="tab-pane" id="add">
+                  <form>
+                      <div class="col-md-4 mb-3">
+                        <label>Motherboard</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>CPU</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Hard Disk Drive</label>
+                        <input type="text" class="form-control"  required>
+                      </div>
+                                   
+                      <div class="col-md-4 mb-3">
+                        <label>Memory</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Monitor</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Case</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Keyboard</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Mouse</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Video Card</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label>Power Supply</label>
+                        <input type="text" class="form-control" required>
+                      </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Printer</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Telephone</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <br>
+                    <button class="btn btn-block btn-outline-primary" id="submitForm" type="submit">Submit form</button>
+                  </form>
+                </div>
+                <!-- end of tab 2 -->
+>>>>>>> 82f4f8ccb5314fb979ec8209ecb076bcd0490f97
               </div>
             @endsection
 
