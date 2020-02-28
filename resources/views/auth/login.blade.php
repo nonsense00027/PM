@@ -11,6 +11,7 @@
 
   <title>FTC — Login</title>
 
+  <link rel="icon" type="image/png" href="media/logo-favicon.png">
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -33,7 +34,9 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block" src="resources/images/login.jpg"></div>
+              <div class="col-lg-6 d-none d-lg-block" src="resources/images/login.jpg">
+                <img src="media/login-emp-img.jpg" width="500px">
+              </div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
