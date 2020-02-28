@@ -1,77 +1,110 @@
-@extends('layouts.app')
+@extends('layouts.layouts')
+    @section('sidebar')
+    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <!-- <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div> -->
+        <!-- <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div> -->
+        <div class="sidebar-brand-text mx-3">FTC Group of Companies</div>
+      </a>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="index.html"> -->
+          <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+          <div class="text-center">
+          <br><br><br><br>
+            <span class="text-center text-gray-100 text-lg small"><b>IT Deptartment</b></span>
+          <br><br><br><br>
+          </div>
+          <!-- </a> -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/charts">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Accountability</span></a>
+      </li>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+      <hr class="sidebar-divider d-none d-md-block">
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="/tables">
+          <i class="fas fa-fw fa-table "></i>
+          <span class="text-gray-100">Inventory</span></a>
+      </li>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+      <li class="nav-item">
+        <a class="nav-link" href="/register">
+          <i class="fas fa-fw fa-table text-gray-100"></i>
+          <span>Register</span></a>
+      </li>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+      <!-- Sidebar Toggler (Sidebar) -->
+      <!-- <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div> -->
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+    </ul>
+    @endsection
+    @section('heading', 'Register')
+    @section('tableheading', 'Register new Department')
+    @section('taboption')
+        <li class="nav-item">
+            <a href="#add" class="nav-link active" role="tab" data-toggle="tab">Add</a>
+        </li>
+    @endsection
+              @section('tabcontent')
+              <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <label for="name">Department Name</label>ss
+                    <input class="form-control bg-light small @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Enter the department name here..." p id="name" type="text"><br>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    <label for="email">Department Code</label>
+                    <input class="form-control bg-light small @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter the department code here..." p id="email" type="email"><br>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <label for="password">Password</label>
+                    <input class="form-control bg-light small @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter the department password here..." p id="password" type="password"><br>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm">Re-type password</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"><br>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+                    <button type="button" class="btn btn-outline-success btn-lg btn-block">Register</button>
+                </form>
+              @endsection
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('script')
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.layouts')
     @section('sidebar')
-    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -26,7 +26,7 @@
           <!-- </a> -->
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/charts">
+        <a class="nav-link" href="/accountabilities">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Accountability</span></a>
       </li>
@@ -35,7 +35,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="/tables">
+        <a class="nav-link" href="/inventories">
           <i class="fas fa-fw fa-table "></i>
           <span class="text-gray-100">Inventory</span></a>
       </li>
@@ -64,19 +64,37 @@
         </li>
     @endsection
               @section('tabcontent')
-                <label for="name">Department Name</label>
-                <input class="form-control bg-light small" placeholder="Enter the department name here..." p id="name" type="text"><br>
+              <form method="POST" action="/register">
+                    @csrf
+                    <label for="name">Department Name</label>
+                    <input class="form-control bg-light small @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text"><br>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                <label for="name">Department Code</label>
-                <input class="form-control bg-light small" placeholder="Enter the department code here..." p id="name" type="text"><br>
+                    <label for="email">Department Code</label>
+                    <input class="form-control bg-light small @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" p id="email" type="email"><br>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                <label for="name">Password</label>
-                <input class="form-control bg-light small" placeholder="Enter the department password here..." p id="name" type="password"><br>
+                    <label for="password">Password</label>
+                    <input class="form-control bg-light small @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" p id="password" type="password"><br>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                <label for="name">Re-type password</label>
-                <input class="form-control bg-light small" placeholder="Re-type the department password here..." p id="name" type="password"><br>
+                    <label for="password-confirm">Re-type password</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"><br>
 
-                <button type="button" class="btn btn-outline-success btn-lg btn-block">Register</button>
+                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Register</button>
+                </form>
               @endsection
 
 @section('script')

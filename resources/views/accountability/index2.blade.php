@@ -33,7 +33,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="/charts">
+        <a class="nav-link" href="/accountabilities">
           <i class="fas fa-fw fa-chart-area text-gray-100"></i>
           <span class="text-gray-100">Accountability</span></a>
       </li>
@@ -302,6 +302,11 @@
                         <label>Email</label>
                         <input type="text" name="email" id="editemail" class="form-control" required>
                     </div>
+
+                    <!-- <div class="form-row">
+                        <label>Remarks</label>
+                        <input type="textarea" name="remarks" id="remark" class="form-control" required>
+                    </div> -->
         </div>
       
         <div class="modal-footer">

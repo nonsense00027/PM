@@ -28,6 +28,7 @@ Route::patch('/accountabilities/{accountability}', 'AccountabilityController@upd
 Route::get('/inventories', 'InventoryController@index')->name('home');
 
 Route::get('/register', 'HomeController@register');
+Route::post('/register', 'HomeController@store');
 Route::get('/test', 'HomeController@test');
 
 Route::get('/logout', function(){
