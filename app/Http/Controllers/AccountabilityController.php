@@ -58,7 +58,14 @@ class AccountabilityController extends Controller
             'mac_address'=>'required',
             'email'=>'required'
           ]);
+
+          $data2 = request()->validate([
+            'id' =>'required',
+            'remark' =>'required'
+          ]);
+          // dd($data2);
           $accountability->update($data);
+          \App\Log::create($data2);
           Alert::success('Edit Success!', $request->name.' has been successfully edited');
           return redirect()->back();
     }

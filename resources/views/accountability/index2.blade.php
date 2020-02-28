@@ -83,7 +83,7 @@
           <div role="tabpanel" class="tab-pane active" id="list">
             <div class="table-responsive">
               <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
-                <thead>
+                <thead class="bg-primary text-white">
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -100,7 +100,7 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tfoot>
+                <tfoot class="bg-primary text-white">
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -243,6 +243,11 @@
       @method('PATCH')
       <div class="modal-body">
             <div class="form-row">
+                      <div class="col-md-1 mb-3">
+                        <label>ID</label>
+                        <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" required>
+                      </div>
+
                       <div class="col-md-4 mb-3">
                         <label>Full Name</label>
                         <input type="text" name="name" id="editname" class="form-control bg-outline-success" required>
@@ -253,7 +258,7 @@
                         <input type="text" name="designation" id="editdesignation" class="form-control" required>
                       </div>
 
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Computer Name</label>
                         <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
                       </div>
@@ -302,11 +307,11 @@
                         <label>Email</label>
                         <input type="text" name="email" id="editemail" class="form-control" required>
                     </div>
-
-                    <!-- <div class="form-row">
+                    <br>
+                    <div class="form-row">
                         <label>Remarks</label>
-                        <input type="textarea" name="remarks" id="remark" class="form-control" required>
-                    </div> -->
+                        <input type="text" name="remark" id="remark" class="form-control" required>
+                    </div>
         </div>
       
         <div class="modal-footer">
@@ -351,6 +356,7 @@
 
             var data = table.row($tr).data();
             console.log(data);
+            $('#editid').val(data[0]);
             $('#editname').val(data[1]);
             $('#editdesignation').val(data[2]);
             $('#editcomputer_name').val(data[3]);
