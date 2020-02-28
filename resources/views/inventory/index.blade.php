@@ -75,7 +75,7 @@
             <a href="#add" class="nav-link" role="tab" data-toggle="tab">Add</a>
         </li>
 @endsection
-            @section('tabcontent')
+            @section('tabcontent')  
               <div class="table-responsive">
                     <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
                       <thead>
@@ -1525,7 +1525,6 @@
                           <td>506-6473 Pretium Street</td>
                           <td>16530515 -3222</td>
                         </tr>
- 
                       </tbody>
                     </table>
               </div>
