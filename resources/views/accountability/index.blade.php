@@ -450,10 +450,13 @@
                           <!-- <td><a href="/accountabilities/{{$accountability->id}}">Hi</a></td> -->
                           <!-- <td><a href="#edit" class="nav-link" role="tab" data-toggle="tab">Edit</a></td> -->
                           <td>
-                            <center>
-                            <!-- OVER  -->
+                            <!-- EDIT USER BUTTON  -->
                             <a href="#" class="edit"  data-toggle="tooltip" title="Edit user information" data-placement="left" >
                               <i class="fas fa-pen"title="Edit user information"></i>
+                            </a>
+                            <!-- CHECK LOGS FUNCTION -->
+                            <a href="#" class="edit"  data-toggle="tooltip" title="Edit user information" data-placement="left" >
+                              <i class="fas fa-info" title="Edit user information"></i>
                             </a>
                           </td>
                         </tr>
@@ -811,7 +814,7 @@
     });
 
 </script>
-   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   
   <script>

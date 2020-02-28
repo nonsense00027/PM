@@ -45,7 +45,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="/register">
-          <i class="fas fa-fw fa-table text-gray-100"></i>
+          <i class="fas fa-fw fa-user"></i>
           <span>Register</span></a>
       </li>
 

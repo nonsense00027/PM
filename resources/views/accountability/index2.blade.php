@@ -135,11 +135,37 @@
                     <!-- <td><a href="/accountabilities/{{$accountability->id}}">Hi</a></td> -->
                     <!-- <td><a href="#edit" class="nav-link" role="tab" data-toggle="tab">Edit</a></td> -->
                     <td>
-                      <center>
-                      <!-- OVER  -->
-                      <a href="#" class="edit"  data-toggle="tooltip" title="Edit user information" data-placement="left" >
+                      <!-- EDIT FUNCTION  -->
+                      <a href="#" class="edit mx-3" data-toggle="tooltip" title="Edit user information" data-placement="left" >
                         <i class="fas fa-pen"title="Edit user information"></i>
                       </a>
+                      <!-- LOGS FUNCTION -->
+                      <a href="" data-target="logsModal" class="edit mx-3"  data-toggle="tooltip" title="View logs" data-placement="left" >
+                        <i class="fas fa-info" title="View logs"></i>
+                      </a>
+
+                      <!-- LOGS MODAL -->
+                      <div class="modal fade" id="logsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="logsModal">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>  
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END OF MODAL -->
+
                     </td>
                   </tr>
                   @endforeach
