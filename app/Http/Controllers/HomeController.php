@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Hash;
 
 class HomeController extends Controller
 {
@@ -22,46 +23,31 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function test(){
+      return view('test.index');
+    }
     public function index()
     {
         $accountabilities = \App\Accountability::all();
         return view('home', compact('accountabilities'));
     }
 
-    public function store(Request $request)
-    {
-      $data = request()->validate([
-        'name'=>'required',
-        'designation'=>'required',
-        'computer_name'=>'required',
-        'location'=>'required',
-        'local_user'=>'required',
-        'local_password'=>'required',
-        'domain_acc'=>'required',
-        'domain_pass'=>'required',
-        'ip_address'=>'required',
-        'mac_address'=>'required',
-        'email'=>'required'
+    public function register(){
+      return view('register.index');
+    }
+
+    public function store(Request $request){
+      // dd($request->name);
+      $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:5', 'confirmed']
       ]);
-
-    //   dd($request);
-      \App\Accountability::create($data);
-      Alert::success('Success!', $request->name.' has been successfully added');
-
-      // $accountability = new \App\Accountability();
-      //
-      // $accountability->name = request('name');
-      // $accountability->designation = request('designation');
-      // $accountability->computer_name = request('computer_name');
-      // $accountability->location = request('location');
-      // $accountability->local_user = request('local_user');
-      // $accountability->local_password = request('local_password');
-      // $accountability->domain_acc = request('domain_acc');
-      // $accountability->domain_pass = request('domain_pass');
-      // $accountability->ip_address = request('ip_address');
-      // $accountability->mac_address = request('mac_address');
-      // $accountability->email = request('email');
-      // $accountability->save();
-      return redirect()->back();
+        $request->merge(['password' => Hash::make($request->password)]);
+        // dd($request->all());
+        \App\User::create($request->all());
+        Alert::success('Success!', $request->name.' has been successfully added');
+        return redirect()->back();
     }
 }

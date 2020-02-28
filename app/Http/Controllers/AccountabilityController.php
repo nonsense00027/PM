@@ -4,20 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Hash;
 
 class AccountabilityController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $accountabilities = \App\Accountability::all();
-        return view('accountability.index', compact('accountabilities'));
+        return view('accountability.index2', compact('accountabilities'));
     }
 
     public function store(Request $request)
     {
         // dd($request->designation);
-      $data = request()->validate([
+      $request->validate([
         'name'=>'required',
         'designation'=>'required',
         'computer_name'=>'required',
@@ -30,7 +36,9 @@ class AccountabilityController extends Controller
         'mac_address'=>'required',
         'email'=>'required'
       ]);
-      \App\Accountability::create($data);
+      // $request->merge(['local_password' => Hash::make($request->local_password)]);
+      // dd($request->all());
+      \App\Accountability::create($request->all());
       Alert::success('Success!', $request->name.' has been successfully added');
       return redirect()->back();
     }

@@ -26,3 +26,13 @@ Route::post('/accountabilities', 'AccountabilityController@store');
 Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');
 
 Route::get('/inventories', 'InventoryController@index')->name('home');
+
+Route::get('/register', 'HomeController@register');
+Route::post('/register', 'HomeController@store');
+Route::get('/test', 'HomeController@test');
+
+Route::get('/logout', function(){
+        Session::flush();
+        Auth::logout();
+        return redirect('/');
+});
