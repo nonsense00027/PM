@@ -16,6 +16,7 @@ class CreateAccountabilitiesTable extends Migration
         Schema::create('accountabilities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('company');
             $table->string('designation');
             $table->string('computer_name');
             $table->string('location');

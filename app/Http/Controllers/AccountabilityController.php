@@ -26,6 +26,7 @@ class AccountabilityController extends Controller
         // dd($request->designation);
       $request->validate([
         'name'=>'required',
+        'company'=>'required',
         'designation'=>'required',
         'computer_name'=>'required',
         'location'=>'required',
@@ -48,6 +49,7 @@ class AccountabilityController extends Controller
         // dd($request->domain_acc);
         $data = request()->validate([
             'name'=>'required',
+            'company'=>'required',
             'designation'=>'required',
             'computer_name'=>'required',
             'location'=>'required',
