@@ -98,7 +98,7 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Options</label>
                       </div>
-                      <select class="custom-select" id="inputGroupSelect01">
+                      <select name="role" class="custom-select" id="inputGroupSelect01">
                         <option selected>Role list...</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>

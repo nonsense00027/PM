@@ -152,12 +152,9 @@
           <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} Department</span>
             <!-- Image icon list add  -->
           
-          <img class="img-profile rounded-circle" src="media/IT-icon.png">
+          <img class="img-profile rounded-circle" src="media/logo-favicon.jpg">
           <!-- <img class="img-profile rounded-circle" src="media/HR-icon.png">
           <img class="img-profile rounded-circle" src="media/ACCT-icon.png"> -->
-        
-        
-        
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

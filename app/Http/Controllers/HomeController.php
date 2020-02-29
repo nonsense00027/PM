@@ -42,7 +42,8 @@ class HomeController extends Controller
       $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:5', 'confirmed']
+        'password' => ['required', 'string', 'min:5', 'confirmed'],
+        'role' =>['required', 'string']
       ]);
         $request->merge(['password' => Hash::make($request->password)]);
         // dd($request->all());

@@ -50,11 +50,13 @@
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
+      @if(Auth::user()->role == 'Admin')
       <li class="nav-item">
         <a class="nav-link" href="/register">
           <i class="fas fa-fw fa-user"></i>
           <span>Register</span></a>
       </li>
+      @endif
 
       <!-- Sidebar Toggler (Sidebar) -->
       <!-- <div class="text-center d-none d-md-inline">
