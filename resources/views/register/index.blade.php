@@ -91,7 +91,19 @@
                     @enderror
 
                     <label for="password-confirm">Re-type password</label>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"><br>
+                    <input id="password-confirm" type="password" class="form-control bg-light" name="password_confirmation" required autocomplete="new-password"><br>
+
+                    <label for="password-confirm">Select User Role</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                      </div>
+                      <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Role list...</option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                      </select>
+                    </div>
 
                     <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Register</button>
                 </form>

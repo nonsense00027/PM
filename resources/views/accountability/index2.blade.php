@@ -21,7 +21,7 @@
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <div class="text-center">
           <br><br><br><br>
-            <span class="text-center text-gray-100 text-lg small"><b>IT Deptartment</b></span>
+            <span class="text-center text-gray-100 text-lg small"><b>{{ Auth::user()->name}} Deptartment</b></span>
           <br><br><br><br>
           </div>
           <!-- </a> -->
