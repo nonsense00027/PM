@@ -11,15 +11,18 @@
 
   <title>FTC — Accountability IT Dept</title>
 
+  <link rel="icon" type="image/png" href="media/logo-favicon.png">
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
   <!-- Data Table link css-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.semanticui.min.css"> -->
   
@@ -140,7 +143,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="/tables">
+        <a class="nav-link" href="/inventories">
           <i class="fas fa-fw fa-table"></i>
           <span>Inventory</span></a>
       </li>
@@ -150,7 +153,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="/register">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-user"></i>
           <span>Register</span></a>
       </li>
 
@@ -383,10 +386,6 @@
                   <a href="#add" class="nav-link" role="tab" data-toggle="tab">Add</a>
                 </li>
 
-                <li class="nav-item">
-                  <a href="#edit" class="nav-link" role="tab" data-toggle="tab">Edit</a>
-                </li>
-
               </ul>
             </div>
 
@@ -413,7 +412,7 @@
                           <th>IP Address</th>
                           <th>MAC Address</th>
                           <th>Email</th>
-                          <th>Options</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tfoot>
@@ -430,7 +429,7 @@
                           <th>IP Address</th>
                           <th>MAC Address</th>
                           <th>Email</th>
-                          <th>Options</th>
+                          <th>Actions</th>
                         </tr>
                       </tfoot>
                       <tbody>
@@ -450,7 +449,16 @@
                           <td>{{$accountability->email}}</td>
                           <!-- <td><a href="/accountabilities/{{$accountability->id}}">Hi</a></td> -->
                           <!-- <td><a href="#edit" class="nav-link" role="tab" data-toggle="tab">Edit</a></td> -->
-                          <td><a href="#" class="btn btn-primary edit">Edit</a></td>
+                          <td>
+                            <!-- EDIT USER BUTTON  -->
+                            <a href="#" class="edit"  data-toggle="tooltip" title="Edit user information" data-placement="left" >
+                              <i class="fas fa-pen"title="Edit user information"></i>
+                            </a>
+                            <!-- CHECK LOGS FUNCTION -->
+                            <a href="#" class="edit"  data-toggle="tooltip" title="Edit user information" data-placement="left" >
+                              <i class="fas fa-info" title="Edit user information"></i>
+                            </a>
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>
@@ -665,7 +673,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn bg-danger text-gray-100" href="/login">Logout</a>
+          <a class="btn bg-danger text-gray-100" href="/logout">Logout</a>
         </div>
       </div>
     </div>
@@ -674,19 +682,19 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-gray-100" id="exampleModalLabel">Modify user information</h5>
+        <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
+          <span  aria-hidden="true">&times;</span>
         </button>
       </div>
       <form id="editForm" action="/accountabilities" method="POST">
       @csrf
       @method('PATCH')
-        <div class="modal-body">
+      <div class="modal-body">
             <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Full Name</label>
@@ -804,12 +812,18 @@
             $('#exampleModal').modal('show');
         });
     });
+
 </script>
-  <!-- Export Button -->
-  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
   <!-- Print Button -->
-  <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
   
   @include('sweetalert::alert')
 </body>

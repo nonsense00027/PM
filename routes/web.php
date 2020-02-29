@@ -24,3 +24,17 @@ Route::get('/accountabilities', 'AccountabilityController@index')->name('home');
 Route::post('/accountabilities', 'AccountabilityController@store');
 // Route::resource('/accountabilities', 'AccountabilityController');
 Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');
+
+Route::get('/inventories', 'InventoryController@index');
+
+Route::get('/register', 'HomeController@register');
+Route::post('/register', 'HomeController@store');
+Route::get('/test', 'HomeController@test');
+
+Route::get('/logout', function(){
+        Session::flush();
+        Auth::logout();
+        return redirect('/');
+});
+
+Route::get('/remarks/{id}', 'ModalController@remarks');
