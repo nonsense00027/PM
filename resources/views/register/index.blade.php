@@ -45,7 +45,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="/register">
-          <i class="fas fa-fw fa-user"></i>
+          <i class="fas fa-fw fa-user text-gray-100"></i>
           <span>Register</span></a>
       </li>
 
@@ -66,16 +66,16 @@
               @section('tabcontent')
               <form method="POST" action="/register">
                     @csrf
-                    <label for="name">Department Name</label>
-                    <input class="form-control bg-light small @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text"><br>
+                    <label for="name">Department Name (Departname abv.)</label>
+                    <input class="form-control bg-light small @error('name') is-invalid @enderror" placeholder="DEPT" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text"><br>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
 
-                    <label for="email">Department Code</label>
-                    <input class="form-control bg-light small @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" p id="email" type="email"><br>
+                    <label for="email">Department Email</label>
+                    <input class="form-control bg-light small @error('email') is-invalid @enderror" name="email" placeholder="admin@dept.com" value="{{ old('email') }}" required autocomplete="email" p id="email" type="email"><br>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

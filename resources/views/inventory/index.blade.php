@@ -47,6 +47,7 @@
           <span class="text-gray-100">Inventory</span></a>
       </li>
 
+      @if(Auth::user()->role == 'Admin')
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -55,6 +56,7 @@
         <i class="fa fa-user" aria-hidden="true"></i>
           <span>Register</span></a>
       </li>
+      @endif
 
       <!-- Sidebar Toggler (Sidebar) -->
       <!-- <div class="text-center d-none d-md-inline">
