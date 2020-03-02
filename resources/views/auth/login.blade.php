@@ -41,10 +41,26 @@
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
-                  </div>
+                  </div><br>
                   <form method="POST" action="{{ route('login') }}">
                   @csrf
                     <div class="form-group">
+
+<!-- DROPDOWN STARTS HERE -->
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Departments</label>
+                      </div>
+
+                      <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="admin@acct.com">Accounting</option>
+                        <option value="admin@hr.com">Human Resource</option>
+                        <option value="admin@it.com">Information Technology</option>
+                      </select>
+                    </div>
+<!-- DROPDOWN ENDS HERE -->
+
                       <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -52,6 +68,7 @@
                             </span>
                         @enderror
                     </div>
+
                     <div class="form-group">
                       <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         @error('password')

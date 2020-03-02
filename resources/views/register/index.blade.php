@@ -34,11 +34,11 @@
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="/inventories">
           <i class="fas fa-fw fa-table "></i>
           <span class="text-gray-100">Inventory</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

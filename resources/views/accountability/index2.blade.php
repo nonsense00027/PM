@@ -34,21 +34,18 @@
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="/accountabilities">
-          <i class="fas fa-fw fa-chart-area text-gray-100"></i>
-          <span class="text-gray-100">Accountability</span></a>
+          <i class="fas fa-fw fa-tachometer-alt text-gray-100"></i>
+          <span class="text-gray-100">Dashboard</span></a>
       </li>
 
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="/inventories">
           <i class="fas fa-fw fa-table"></i>
           <span>Inventory</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      </li> -->
 
       @if(Auth::user()->role == 'Admin')
       <li class="nav-item">
@@ -151,7 +148,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
                             <div class="modal-header bg-primary">
-                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">Modify user information</h5>
+                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">Modify {{$accountability->name}}'s user information</h5>
                               <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
                                 <span  aria-hidden="true">&times;</span>
                               </button>
@@ -245,7 +242,123 @@
                             </form>
                           </div>
                         </div>
-</div>  
+                      </div>  
+
+                      <!-- INVENTORY MODAL -->
+
+                      <a href="#" data-target="#inventoryModal" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
+                        <i class="fas fa-th-list" title="User Accountability"></i>
+                      </a>
+
+                      <div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">{{$accountability->name}}'s Inventory</h5>
+                              <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                  <div class="form-row">
+                                    <div class="col-md-1 mb-3">
+                                      <label>ID</label>
+                                      <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" value="{{$accountability->id}}" required>
+                                    </div>
+
+                                    <div class="col-md-11 mb-3">
+                                      <label>Full Name</label>
+                                      <input type="text" name="name" id="editname" class="form-control bg-outline-success" value="{{$accountability->name}}" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                    <div class="col-md-3 mb-3">
+                                      <label>Motherboard</label>
+                                      <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                      <label>CPU</label>
+                                      <input type="text" name="location" id="editlocation" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>HDD</label>
+                                      <input type="text" name="local_user" id="editlocal_user" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Memory</label>
+                                      <input type="text" name="local_password" id="editlocal_password" class="form-control" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                    <div class="col-md-3 mb-3">
+                                      <label>Monitor</label>
+                                      <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Case</label>
+                                      <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Keyboard</label>
+                                      <input type="text" name="ip_address" id="editip_address" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Mouse</label>
+                                      <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                    <div class="col-md-3 mb-3">
+                                      <label>Video Card</label>
+                                      <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Power Supply</label>
+                                      <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Printer</label>
+                                      <input type="text" name="ip_address" id="editip_address" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Mouse</label>
+                                      <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                      <label>Remarks</label>
+                                      <input type="text" name="remark" id="remark" class="form-control" required>
+                                  </div>
+                              </div>
+
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  @if(Auth::user()->role == 'Admin')
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                  @endif
+                              </div>
+
+                              </div>
+                            
+                              
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- END OF INVENTORY MODAL -->
+
                       <!-- LOGS FUNCTION -->
                       <!-- <a href="#" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
@@ -257,9 +370,9 @@
                       <div class="modal fade" id="sampleModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Logs</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div class="modal-header bg-primary">
+                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">{{$accountability->name}}'s logs</h5>
+                              <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
@@ -288,6 +401,8 @@
                           </div>
                         </div>
                       </div>
+
+                      
 
                       <!-- WORKING -->
                       <!-- <a href="#" onclick="onClickModalRemark('{{$accountability->id}}')" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
