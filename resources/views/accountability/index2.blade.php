@@ -234,6 +234,9 @@
                               </div>
                             
                               <div class="modal-footer">
+                                  <button type="button" class="btn btn-success" onclick="printJS('editForm', 'html')">
+                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
+                                  </button>
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                   @if(Auth::user()->role == 'Admin')
                                   <button type="submit" class="btn btn-primary">Save changes</button>
@@ -753,6 +756,7 @@ function onClickModalRemark(id){
 
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
   
   <script>
     $(function () {
