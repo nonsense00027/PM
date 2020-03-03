@@ -52,22 +52,28 @@
                         <label class="input-group-text" for="inputGroupSelect01">Departments</label>
                       </div>
 
-                      <select class="custom-select" id="inputGroupSelect01">
+                      <!-- <select class="custom-select" id="inputGroupSelect01"> -->
+                      <select name="email" id="email" class="custom-select form-control @error('email') is-invalid @enderror" id="inputGroupSelect01">
                         <option selected>Choose...</option>
-                        <option value="admin@acct.com">Accounting</option>
-                        <option value="admin@hr.com">Human Resource</option>
-                        <option value="admin@it.com">Information Technology</option>
+                        @foreach($users as $user)
+                        <option value="{{$user->email}}">{{$user->name}}</option>
+                        @endforeach
                       </select>
-                    </div>
-<!-- DROPDOWN ENDS HERE -->
-
-                      <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        @error('email')
+                      @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+<!-- DROPDOWN ENDS HERE -->
+
+                      <!-- <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> -->
+                        <!-- @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror -->
+                    <!-- </div> -->
 
                     <div class="form-group">
                       <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">

@@ -153,7 +153,7 @@
                                 <span  aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                            <form id="editForm" action="/accountabilities/{{$accountability->id}}" method="POST">
+                            <form id="editForm1" action="/accountabilities/{{$accountability->id}}" method="POST">
                             @csrf
                             @method('PATCH')
                             <div class="modal-body">
@@ -247,13 +247,13 @@
                         </div>
                       </div>  
 
-                      <!-- INVENTORY MODAL -->
+                      <!-- INVENTORY FUNCTION -->
 
-                      <a href="#" data-target="#inventoryModal" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
+                      <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
                         <i class="fas fa-th-list" title="User Accountability"></i>
                       </a>
-
-                      <div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <!-- INVENTORY MODAL -->
+                      <div class="modal fade" id="inventoryModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
                             <div class="modal-header bg-primary">
@@ -262,19 +262,10 @@
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
+                            <form id="editForm2" action="/inventories/{{$accountability->id}}" method="POST">
+                            @csrf
+                            @method('PATCH')
                             <div class="modal-body">
-                                  <div class="form-row">
-                                    <div class="col-md-1 mb-3">
-                                      <label>ID</label>
-                                      <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" value="{{$accountability->id}}" required>
-                                    </div>
-
-                                    <div class="col-md-11 mb-3">
-                                      <label>Full Name</label>
-                                      <input type="text" name="name" id="editname" class="form-control bg-outline-success" value="{{$accountability->name}}" required>
-                                    </div>
-                                  </div>
-
                                   <div class="form-row">
                                     <div class="col-md-3 mb-3">
                                       <label>Motherboard</label>
@@ -335,7 +326,7 @@
                                     </div>
 
                                     <div class="col-md-3 mb-3">
-                                      <label>Mouse</label>
+                                      <label>Telephone</label>
                                       <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
                                     </div>
                                   </div>
@@ -352,10 +343,8 @@
                                   <button type="submit" class="btn btn-primary">Save changes</button>
                                   @endif
                               </div>
-
-                              </div>
-                            
-                              
+                            </div>
+                            </form>
                           </div>
                         </div>
                       </div>

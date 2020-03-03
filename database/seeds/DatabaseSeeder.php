@@ -13,15 +13,15 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-        // DB::table('users')->insert([
-        //     'name'=>'IT',
-        //     'email'=>'admin@it.com',
-        //     'password'=>Hash::make('itpass'),
-        //     'role'=>'Admin'
-        // ]);
+        DB::table('users')->insert([
+            'name'=>'Information Technology',
+            'email'=>'admin@it.com',
+            'password'=>Hash::make('itpass'),
+            'role'=>'Admin'
+        ]);
         
         DB::table('users')->insert([
-            'name'=>'HR',
+            'name'=>'Human Resource',
             'email'=>'admin@hr.com',
             'password'=>Hash::make('hrpass'),
             'role'=>'User'

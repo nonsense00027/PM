@@ -17,8 +17,9 @@ class AccountabilityController extends Controller
     public function index()
     {
         $accountabilities = \App\Accountability::all();
+        $inventories = \App\Inventory::all();
         $logs = \App\Log::all();
-        return view('accountability.index2', compact('accountabilities', 'logs'));
+        return view('accountability.index2', compact('accountabilities', 'logs', 'inventories'));
     }
 
     public function store(Request $request)
@@ -41,6 +42,7 @@ class AccountabilityController extends Controller
       // $request->merge(['local_password' => Hash::make($request->local_password)]);
       // dd($request->all());
       \App\Accountability::create($request->all());
+      \App\Inventory::create();
       Alert::success('Success!', $request->name.' has been successfully added');
       return redirect()->back();
     }
