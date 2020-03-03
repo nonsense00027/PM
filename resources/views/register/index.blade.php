@@ -41,7 +41,7 @@
       </li> -->
 
       <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
       <li class="nav-item">
         <a class="nav-link" href="/register">
@@ -65,15 +65,30 @@
     @endsection
               @section('tabcontent')
               <form method="POST" action="/register">
-                    @csrf
-                    <label for="name">Department Name (Departname abv.)</label>
-                    <input class="form-control bg-light small @error('name') is-invalid @enderror" placeholder="DEPT" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text"><br>
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
 
+                  <div class="form-row">
+                    <div class="col-md-9 mb-3">
+                        @csrf
+                        <label for="name">Department Name</label>
+                        <input class="form-control bg-light small @error('name') is-invalid @enderror" placeholder="Sample" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text"><br>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
+                      
+                    <div class="col-md-3 mb-3">
+                      <label for="name">Department Abbreviation</label>
+                      <input class="form-control bg-light small @error('name') is-invalid @enderror" placeholder="SMPL" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text"><br>
+                      @error('name')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                  </div>
+                    
                     <label for="email">Department Email</label>
                     <input class="form-control bg-light small @error('email') is-invalid @enderror" name="email" placeholder="admin@dept.com" value="{{ old('email') }}" required autocomplete="email" p id="email" type="email"><br>
                     @error('email')
