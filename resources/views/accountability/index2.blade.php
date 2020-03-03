@@ -100,24 +100,6 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tfoot class="bg-primary text-white">
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <!-- <th>Designation</th> -->
-                    <th>Company</th>
-                    <!-- <!-- <th>Computer Name</th> -->
-                    <th>Location</th>
-                    <!-- <th>Local User</th>
-                    <th>Local Password</th>
-                    <th>Domain Account</th>
-                    <th>Domain Password</th>
-                    <th>IP Address</th>
-                    <th>MAC Address</th>
-                    <th>Email</th> -->
-                    <th>Actions</th>
-                  </tr>
-                </tfoot>
                 <tbody>
                 @foreach ($accountabilities as $accountability)
                   <tr>
@@ -234,13 +216,13 @@
                               </div>
                             
                               <div class="modal-footer">
-                                  <button type="button" class="btn btn-success" onclick="printJS('editForm', 'html')">
-                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
-                                  </button>
-
-                                  <!-- <button type="button" class="btn btn-success" onclick="window.print();">
+                                  <!-- <button type="button" class="btn btn-success" onclick="printJS('editForm', 'html')">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button> -->
+
+                                  <button type="button" class="btn btn-success" onclick="window.print();">
+                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
+                                  </button>
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                   @if(Auth::user()->role == 'Admin')
                                   <button type="submit" class="btn btn-primary">Save changes</button>
