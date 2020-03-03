@@ -237,6 +237,10 @@
                                   <button type="button" class="btn btn-success" onclick="printJS('editForm', 'html')">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
+
+                                  <!-- <button type="button" class="btn btn-success" onclick="window.print();">
+                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
+                                  </button> -->
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                   @if(Auth::user()->role == 'Admin')
                                   <button type="submit" class="btn btn-primary">Save changes</button>
