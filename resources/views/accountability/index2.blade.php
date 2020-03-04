@@ -28,7 +28,6 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
 
 
       <!-- Nav Item - Charts -->
@@ -47,13 +46,11 @@
           <span>Inventory</span></a>
       </li> -->
 
-      @if(Auth::user()->role == 'Admin')
       <li class="nav-item">
         <a class="nav-link" href="/register">
           <i class="fas fa-fw fa-user"></i>
-          <span>Register</span></a>
+          <span>Account Management</span></a>
       </li>
-      @endif
 
       <!-- Sidebar Toggler (Sidebar) -->
       <!-- <div class="text-center d-none d-md-inline">
@@ -398,82 +395,82 @@
 
           <!-- tab 2 is the form to add a new employee -->
           <div role="tabpanel" class="tab-pane" id="add">
-          <!-- Form starts here -->
-          <form action="/accountabilities" method="post">
-              @csrf
-              <div class="form-row">
-                <div class="col-md-3 mb-3">
-                  <label>Full Name</label>
-                  <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Full Name here..." required>
+            <!-- Form starts here -->
+              
+                @csrf
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Full Name here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>Company</label>
+                    <input type="text" class="form-control" name="company" value="{{old('company')}}" placeholder="Designation here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>Designation</label>
+                    <input type="text" class="form-control" name="designation" value="{{old('designation')}}" placeholder="Designation here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>Computer Name</label>
+                    <input type="text" class="form-control" name="computer_name" value="{{old('computer_name')}}" placeholder="Computer Name here..." required>
+                  </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
-                  <label>Company</label>
-                  <input type="text" class="form-control" name="company" value="{{old('company')}}" placeholder="Designation here..." required>
+                <div class="form-row">
+                  <div class="col-md-5 mb-3">
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="location" value="{{old('location')}}" placeholder="Location here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>Local User</label>
+                    <input type="text" class="form-control" name="local_user" value="{{old('local_user')}}" placeholder="Local User here..." required>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label>Local Password</label>
+                    <input type="text" class="form-control" name="local_password" value="{{old('local_password')}}" placeholder="Local Password here..." required>
+                  </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
-                  <label>Designation</label>
-                  <input type="text" class="form-control" name="designation" value="{{old('designation')}}" placeholder="Designation here..." required>
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label>Domain Account</label>
+                    <input type="text" class="form-control" name="domain_acc" value="{{old('domain_acc')}}" placeholder="Domain Account here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>Domain Password</label>
+                    <input type="text" class="form-control" name="domain_pass" value="{{old('domain_pass')}}" placeholder="Domain Password here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>IP Address</label>
+                    <input type="text" class="form-control" name="ip_address" value="{{old('ip_address')}}" placeholder="IP Address here..." required>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label>MAC Address</label>
+                    <input type="text" class="form-control" name="mac_address" value="{{old('mac_address')}}" placeholder="MAC Address here..." required>
+                  </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
-                  <label>Computer Name</label>
-                  <input type="text" class="form-control" name="computer_name" value="{{old('computer_name')}}" placeholder="Computer Name here..." required>
+                <div class="form-row">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email here..." value="{{old('email')}}"  required>
                 </div>
-              </div>
-
-              <div class="form-row">
-                <div class="col-md-5 mb-3">
-                  <label>Location</label>
-                  <input type="text" class="form-control" name="location" value="{{old('location')}}" placeholder="Location here..." required>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label>Local User</label>
-                  <input type="text" class="form-control" name="local_user" value="{{old('local_user')}}" placeholder="Local User here..." required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                  <label>Local Password</label>
-                  <input type="text" class="form-control" name="local_password" value="{{old('local_password')}}" placeholder="Local Password here..." required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="col-md-3 mb-3">
-                  <label>Domain Account</label>
-                  <input type="text" class="form-control" name="domain_acc" value="{{old('domain_acc')}}" placeholder="Domain Account here..." required>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label>Domain Password</label>
-                  <input type="text" class="form-control" name="domain_pass" value="{{old('domain_pass')}}" placeholder="Domain Password here..." required>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label>IP Address</label>
-                  <input type="text" class="form-control" name="ip_address" value="{{old('ip_address')}}" placeholder="IP Address here..." required>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label>MAC Address</label>
-                  <input type="text" class="form-control" name="mac_address" value="{{old('mac_address')}}" placeholder="MAC Address here..." required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                  <label>Email</label>
-                  <input type="email" class="form-control" name="email" placeholder="Email here..." value="{{old('email')}}"  required>
-              </div>
-              <br>
-              @if(Auth::user()->role == 'Admin')
-              <button class="btn btn-block btn-outline-primary" type="submit">Submit form</button>
-              @elseif(Auth::user()->role != 'Admin')
-              <button class="btn btn-block btn-secondary" type="submit" disabled>You don't have authority for this feature</button>
-              @endif
-            </form>
-          <!-- Form ends here -->
+                <br>
+                @if(Auth::user()->role == 'Admin')
+                <button class="btn btn-block btn-outline-primary" type="submit">Submit form</button>
+                @elseif(Auth::user()->role != 'Admin')
+                <button class="btn btn-block btn-secondary" type="submit" disabled>You don't have authority for this feature</button>
+                @endif
+              </form>
+            <!-- Form ends here -->
           </div>
           <!-- End of Tab 2 -->         
         </div>

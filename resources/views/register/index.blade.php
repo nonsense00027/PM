@@ -20,7 +20,7 @@
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <div class="text-center">
           <br><br><br><br>
-            <span class="text-center text-gray-100 text-lg small"><b>IT Deptartment</b></span>
+            <span class="text-center text-gray-100 text-lg small"><b>{{ Auth::user()->name}} Deptartment</b></span>
           <br><br><br><br>
           </div>
           <!-- </a> -->
@@ -46,7 +46,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/register">
           <i class="fas fa-fw fa-user text-gray-100"></i>
-          <span>Register</span></a>
+          <span>Account Management</span></a>
       </li>
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -56,21 +56,25 @@
 
     </ul>
     @endsection
-    @section('heading', 'Register')
-    @section('tableheading', 'Register new Department')
+    @section('heading', 'Account Management')
+    @section('tableheading', 'Manage department accounts')
     @section('taboption')
+        
         <li class="nav-item">
-            <a href="#add" class="nav-link active" role="tab" data-toggle="tab">Add</a>
+            <a href="#pass" class="nav-link active" role="tab" data-toggle="tab">Password Management</a>
         </li>
 
+        @if(Auth::user()->role == 'Admin')
         <li class="nav-item">
-            <a href="#pass" class="nav-link" role="tab" data-toggle="tab">Password Management</a>
+            <a href="#add" class="nav-link" role="tab" data-toggle="tab">Add</a>
         </li>
+        @endif
+        
     @endsection
     
     @section('tabcontent')
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="add">
+      <div role="tabpanel" class="tab-pane" id="add">
                 <form method="POST" action="/register">
                     <div class="form-row">
                       <div class="col-md-9 mb-3">
