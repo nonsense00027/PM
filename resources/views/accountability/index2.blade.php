@@ -123,7 +123,7 @@
                         <i class="fas fa-pen" title="Edit user information"></i>
                       </a>
                       <!-- EDIT MODAL -->
-                      <div class="modal fade bd-example-modal-lg" id="exampleModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade bd-example-modal-lg printModal" id="exampleModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
                             <div class="modal-header bg-primary">
@@ -217,13 +217,12 @@
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button> -->
 
-                                  <button type="button" class="btn btn-success" onclick="window.print();">
+                                  <button type="button" class="btn btn-success" id="printButton">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  @if(Auth::user()->role == 'Admin')
                                   <button type="submit" class="btn btn-primary">Save changes</button>
-                                  @endif
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  
                               </div>
                             </form>
                           </div>
@@ -725,6 +724,21 @@ function onClickModalRemark(id){
 }
 
 </script>
+
+  <!-- Print function library -->
+  <script src="jquery.js"></script>
+  <script src="jquery.PrintArea.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#printButton").click(function(){
+          var mode = 'iframe'; //popup
+          var close = mode == "iframe";
+          var options = { mode : mode, popClose : close};
+          $("div.printModal").printArea( options );
+      });
+  });
+  </script>
+
 
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
