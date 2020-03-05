@@ -207,13 +207,13 @@
                                   </div>
                                   <br>
                                   <div class="form-row">
-                                      <label>Remarks</label>
+                                      <label id="remarksForPrint">Remarks</label>
                                       <input type="text" name="remark" id="remark" class="form-control" required>
                                   </div>
                               </div>
                             
                               <div class="modal-footer">
-                                  <button id="printBtn" type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', header: 'Accountability Form of {{$accountability->name}}', css: '/css/sb-admin-2.css', honorColor: 'true' })">
+                                  <button id="printBtn" type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', documentTitle: 'FTC Group of Companies | Accountability Form of {{$accountability->name}}', css: '/css/print.css', honorColor: 'true', ignoreElements: ['saveBtn','cancelBtn','remarksForPrint','printBtn'], gridStyle: 'border: 1px solid lightgray; margin-bottom: -1px;', targetStyle: 'null' })">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
 
