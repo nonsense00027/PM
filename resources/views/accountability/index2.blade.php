@@ -213,13 +213,13 @@
                               </div>
                             
                               <div class="modal-footer">
-                                  <!-- <button type="button" class="btn btn-success" onclick="printJS('editForm', 'html')">
-                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
-                                  </button> -->
-
-                                  <button type="button" class="btn btn-success" id="printButton">
+                                  <button type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', header: 'Accountability Form', css: '/css/sb-admin-2.css' })">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
+
+                                  <!-- <button type="button" class="btn btn-success" id="printButton">
+                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
+                                  </button> -->
                                   <button type="submit" class="btn btn-primary">Save changes</button>
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                   
@@ -725,9 +725,12 @@ function onClickModalRemark(id){
 
 </script>
 
+<!-- Crabbly print -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
   <!-- Print function library -->
-  <script src="jquery.js"></script>
-  <script src="jquery.PrintArea.js"></script>
+  <!-- <script src="/js/jquery.PrintArea.js"></script>
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
   <script>
   $(document).ready(function(){
       $("#printButton").click(function(){
@@ -737,12 +740,11 @@ function onClickModalRemark(id){
           $("div.printModal").printArea( options );
       });
   });
-  </script>
+  </script> -->
 
 
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
   
   <script>
     $(function () {
