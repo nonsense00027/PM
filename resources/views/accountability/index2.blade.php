@@ -213,7 +213,7 @@
                               </div>
                             
                               <div class="modal-footer">
-                                  <button id="printBtn" type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', header: 'Accountability Form of {{$accountability->name}}', css: '/css/sb-admin-2.css' })">
+                                  <button id="printBtn" type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', header: 'Accountability Form of {{$accountability->name}}', css: '/css/sb-admin-2.css', honorColor: 'true' })">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
 
