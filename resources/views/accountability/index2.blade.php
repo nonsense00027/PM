@@ -213,15 +213,15 @@
                               </div>
                             
                               <div class="modal-footer">
-                                  <button type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', header: 'Accountability Form', css: '/css/sb-admin-2.css' })">
+                                  <button id="printBtn" type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm1', type: 'html', header: 'Accountability Form of {{$accountability->name}}', css: '/css/sb-admin-2.css' })">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
 
                                   <!-- <button type="button" class="btn btn-success" id="printButton">
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button> -->
-                                  <button type="submit" class="btn btn-primary">Save changes</button>
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button id="saveBtn" type="submit" class="btn btn-primary">Save changes</button>
+                                  <button id="cancelBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                   
                               </div>
                             </form>
@@ -320,6 +320,11 @@
                               </div>
 
                               <div class="modal-footer">
+
+                                <button id="printBtn" type="button" class="btn btn-success" onclick="printJS({ printable: 'editForm2', type: 'html', header: 'Inventory Form of {{$accountability->name}}', css: '/css/sb-admin-2.css' })">
+                                    <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
+                                  </button>
+
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                   @if(Auth::user()->role == 'Admin')
                                   <button type="submit" class="btn btn-primary">Save changes</button>
