@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Hash;
-// use DB;
+use DB;
 
 class AccountabilityController extends Controller
 {
@@ -17,8 +17,8 @@ class AccountabilityController extends Controller
     
     public function index()
     {
-        $accountabilities = \App\Accountability::all();
-        // $accountabilities = DB::table('accountabilities')->join('inventories', 'accountabilities.id','=','inventories.id')->get();
+        // $accountabilities = \App\Accountability::all();
+        $accountabilities = DB::table('accountabilities')->join('inventories', 'accountabilities.id','=','inventories.id')->get();
         // dd($accountabilities);
         $inventories = \App\Inventory::all();
         $logs = \App\Log::all();

@@ -400,7 +400,7 @@
           <!-- tab 2 is the form to add a new employee -->
           <div role="tabpanel" class="tab-pane" id="add">
             <!-- Form starts here -->
-              
+              <form action="/accountabilities" method="POST">
                 @csrf
                 <div class="form-row">
                   <div class="col-md-3 mb-3">
