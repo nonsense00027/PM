@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    $users = App\User::all();
+    return view('auth.login',compact('users'));
 });
 
 Auth::routes();
@@ -24,12 +25,13 @@ Route::get('/accountabilities', 'AccountabilityController@index')->name('home');
 Route::post('/accountabilities', 'AccountabilityController@store');
 // Route::resource('/accountabilities', 'AccountabilityController');
 Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');
-
+Route::patch('/inventories/{inventory}', 'InventoryController@update');
 Route::get('/inventories', 'InventoryController@index');
 
 Route::get('/register', 'HomeController@register');
 Route::post('/register', 'HomeController@store');
 Route::get('/test', 'HomeController@test');
+Route::patch('/users/{user}', 'HomeController@update');
 
 Route::get('/logout', function(){
         Session::flush();

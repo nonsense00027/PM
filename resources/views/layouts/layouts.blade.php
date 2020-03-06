@@ -19,6 +19,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="https://printjs-4de6.kxcdn.com/print.min.css">
 
 
   <!-- Data Table link css-->
@@ -55,7 +56,7 @@
     </button>
 
     <!-- Topbar Search -->
-    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
       <div class="input-group">
         <input type="text" class="form-control bg-light border-0 small" placeholder="Search company..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -64,7 +65,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -89,14 +90,14 @@
         </div>
       </li>
       <!-- Nav Item - Messages -->
-      <li class="nav-item dropdown no-arrow mx-1">
+      <!-- <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
+          <i class="fas fa-envelope fa-fw"></i> -->
           <!-- Counter - Messages -->
-          <span class="badge badge-danger badge-counter">7</span>
-        </a>
+          <!-- <span class="badge badge-danger badge-counter">7</span> -->
+        <!-- </a> -->
         <!-- Dropdown - Messages -->
-        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+        <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
           <h6 class="dropdown-header">
             Message Center
           </h6>
@@ -142,15 +143,19 @@
           </a>
           <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
         </div>
-      </li>
+      </li> -->
 
       <div class="topbar-divider d-none d-sm-block"></div>
 
       <!-- Nav Item - User Information -->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} Department</span>
+            <!-- Image icon list add  -->
+          
+          <img class="img-profile rounded-circle" src="media/logo-favicon.jpg">
+          <!-- <img class="img-profile rounded-circle" src="media/HR-icon.png">
+          <img class="img-profile rounded-circle" src="media/ACCT-icon.png"> -->
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
