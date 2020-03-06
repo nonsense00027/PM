@@ -397,7 +397,7 @@
                 <!-- Tab 1 is the list of the employees -->
                 <div role="tabpanel" class="tab-pane active" id="list">
                   <div class="table-responsive">
-                    <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-hover" id="myDataTable" width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th>ID</th>

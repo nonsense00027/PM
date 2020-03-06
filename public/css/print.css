@@ -1,0 +1,11 @@
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input {
+    border: none;
+    text-decoration: underline;
+    margin-left: 5px;
+}
