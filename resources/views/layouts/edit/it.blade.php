@@ -34,15 +34,17 @@
             </div>
 
             <div class="form-row">
-            <div class="col-md-3 mb-3">
-                <label>Computer Name</label>
-                <input type="text" name="computer_name" id="editcomputer_name" class="form-control" value="{{$accountability->computer_name}}" required>
-            </div>
+
             <div class="col-md-3 mb-3">
                 <label>Location</label>
                 <input readonly type="text" name="location" id="editlocation" class="form-control" value="{{$accountability->location}}" required>
             </div>
 
+            <div class="col-md-3 mb-3">
+                <label>Computer Name</label>
+                <input type="text" name="computer_name" id="editcomputer_name" class="form-control" value="{{$accountability->computer_name}}" required>
+            </div>
+            
             <div class="col-md-3 mb-3">
                 <label>Local User</label>
                 <input type="text" name="local_user" id="editlocal_user" class="form-control" value="{{$accountability->local_user}}" required>

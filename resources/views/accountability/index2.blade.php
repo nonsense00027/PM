@@ -59,7 +59,7 @@
 
     </ul>
 @endsection
-@section('heading', 'Accountability')
+@section('heading', 'Dashboard')
 @section('tableheading', 'Employees Accountability')
 @section('taboption')
         <li class="nav-item">
@@ -101,7 +101,7 @@
                 <tbody>
                 @foreach ($accountabilities as $accountability)
                   @if($accountability->status == 'false')
-                  <tr class=".danger">
+                  <tr>
                   @elseif($accountability->status == 'true')
                   <tr>
                   @endif
@@ -198,69 +198,76 @@
               <form action="/accountabilities" method="POST">
                 @csrf
                 <div class="form-row">
-                  <div class="col-md-3 mb-3">
+                  <div class="col-md-4 mb-3">
                     <label>Full Name</label>
                     <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Full Name here..." required>
                   </div>
 
-                  <div class="col-md-3 mb-3">
+                  <div class="col-md-4 mb-3">
                     <label>Company</label>
                     <input type="text" class="form-control" name="company" value="{{old('company')}}" placeholder="Designation here..." required>
                   </div>
 
-                  <div class="col-md-3 mb-3">
+                  <div class="col-md-4 mb-3">
                     <label>Designation</label>
                     <input type="text" class="form-control" name="designation" value="{{old('designation')}}" placeholder="Designation here..." required>
                   </div>
 
-                  <div class="col-md-3 mb-3">
+                  <!-- <div class="col-md-3 mb-3">
                     <label>Computer Name</label>
                     <input type="text" class="form-control" name="computer_name" value="{{old('computer_name')}}" placeholder="Computer Name here..." required>
-                  </div>
+                  </div> -->
                 </div>
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                   <div class="col-md-5 mb-3">
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="location" value="{{old('location')}}" placeholder="Location here..." required>
+                  </div> -->
+
+                  <!-- <div class="col-md-3 mb-3">
+                    <label>Local User</label>
+                    <input type="text" class="form-control" name="local_user" value="{{old('local_user')}}" placeholder="Local User here..." required>
+                  </div> -->
+
+                  <!-- <div class="col-md-4 mb-3">
+                    <label>Local Password</label>
+                    <input type="text" class="form-control" name="local_password" value="{{old('local_password')}}" placeholder="Local Password here..." required>
+                  </div>
+                </div> -->
+
+                <!-- <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label>Domain Account</label>
+                    <input type="text" class="form-control" name="domain_acc" value="{{old('domain_acc')}}" placeholder="Domain Account here..." required>
+                  </div> -->
+
+                  <!-- <div class="col-md-3 mb-3">
+                    <label>Domain Password</label>
+                    <input type="text" class="form-control" name="domain_pass" value="{{old('domain_pass')}}" placeholder="Domain Password here..." required>
+                  </div> -->
+<!-- 
+                  <div class="col-md-3 mb-3">
+                    <label>IP Address</label>
+                    <input type="text" class="form-control" name="ip_address" value="{{old('ip_address')}}" placeholder="IP Address here..." required>
+                  </div> -->
+
+                  <!-- <div class="col-md-3 mb-3">
+                    <label>MAC Address</label>
+                    <input type="text" class="form-control" name="mac_address" value="{{old('mac_address')}}" placeholder="MAC Address here..." required>
+                  </div> -->
+                <!-- </div> -->
+                
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
                     <label>Location</label>
                     <input type="text" class="form-control" name="location" value="{{old('location')}}" placeholder="Location here..." required>
                   </div>
 
-                  <div class="col-md-3 mb-3">
-                    <label>Local User</label>
-                    <input type="text" class="form-control" name="local_user" value="{{old('local_user')}}" placeholder="Local User here..." required>
-                  </div>
-
-                  <div class="col-md-4 mb-3">
-                    <label>Local Password</label>
-                    <input type="text" class="form-control" name="local_password" value="{{old('local_password')}}" placeholder="Local Password here..." required>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="col-md-3 mb-3">
-                    <label>Domain Account</label>
-                    <input type="text" class="form-control" name="domain_acc" value="{{old('domain_acc')}}" placeholder="Domain Account here..." required>
-                  </div>
-
-                  <div class="col-md-3 mb-3">
-                    <label>Domain Password</label>
-                    <input type="text" class="form-control" name="domain_pass" value="{{old('domain_pass')}}" placeholder="Domain Password here..." required>
-                  </div>
-
-                  <div class="col-md-3 mb-3">
-                    <label>IP Address</label>
-                    <input type="text" class="form-control" name="ip_address" value="{{old('ip_address')}}" placeholder="IP Address here..." required>
-                  </div>
-
-                  <div class="col-md-3 mb-3">
-                    <label>MAC Address</label>
-                    <input type="text" class="form-control" name="mac_address" value="{{old('mac_address')}}" placeholder="MAC Address here..." required>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                    <label>Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Email here..." value="{{old('email')}}"  required>
+                    <div class="col-md-6 mb-3">
+                      <label>Email</label>
+                      <input type="email" class="form-control" name="email" placeholder="Email here..." value="{{old('email')}}"  required>
+                    </div>
                 </div>
 
                 <div class="form-row">
@@ -531,20 +538,6 @@ function onClickModalRemark(id){
 
 <!-- Crabbly print -->
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-
-  <!-- Print function library -->
-  <!-- <script src="/js/jquery.PrintArea.js"></script>
-  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-  <script>
-  $(document).ready(function(){
-      $("#printButton").click(function(){
-          var mode = 'iframe'; //popup
-          var close = mode == "iframe";
-          var options = { mode : mode, popClose : close};
-          $("div.printModal").printArea( options );
-      });
-  });
-  </script> -->
 
 
    <script src="vendor/datatables/jquery.dataTables.min.js"></script>

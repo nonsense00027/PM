@@ -18,7 +18,7 @@ class CreateAccountabilitiesTable extends Migration
             $table->string('name');
             $table->string('company');
             $table->string('designation');
-            $table->string('computer_name');
+            $table->string('computer_name')->nullable();
             $table->string('location');
             $table->string('local_user')->nullable();
             $table->string('local_password')->nullable();
