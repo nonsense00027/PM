@@ -1,0 +1,95 @@
+                      <!-- <div class="modal fade" id="inventoryModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">{{$accountability->name}}'s Inventory</h5>
+                              <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <form id="editForm2" action="/inventories/{{$accountability->id}}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <div class="modal-body">
+                                  <div class="form-row">
+                                    <div class="col-md-3 mb-3">
+                                      <label>Motherboard</label>
+                                      <input type="text" name="motherboard" id="editmotherboard" class="form-control" value="{{$inventories->motherboard}}" required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                      <label>CPU</label>
+                                      <input type="text" name="cpu" id="editcpu" class="form-control" value="{{$inventories->cpu}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>HDD</label>
+                                      <input type="text" name="hdd" id="edithdd" class="form-control" value="{{$inventories->hdd}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Memory</label>
+                                      <input type="text" name="memory" id="editmemory" class="form-control" value="{{$inventories->memory}}" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                    <div class="col-md-3 mb-3">
+                                      <label>Monitor</label>
+                                      <input type="text" name="monitor" id="editmonitor" class="form-control" value="{{$inventories->monitor}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Case</label>
+                                      <input type="text" name="case" id="editcase" class="form-control" value="{{$inventories->case}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Keyboard</label>
+                                      <input type="text" name="keyboard" id="editkeyboard" class="form-control" value="{{$inventories->keyboard}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Mouse</label>
+                                      <input type="text" name="mouse" id="editmouse" class="form-control" value="{{$inventories->mouse}}" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                    <div class="col-md-3 mb-3">
+                                      <label>Video Card</label>
+                                      <input type="text" name="video_card" id="editvideo_card" class="form-control" value="{{$inventories->video_card}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Power Supply</label>
+                                      <input type="text" name="power_supply" id="editpower_supply" class="form-control" value="{{$inventories->power_supply}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Printer</label>
+                                      <input type="text" name="printer" id="editprinter" class="form-control" value="{{$inventories->printer}}" required>
+                                    </div>
+
+                                    <div class="col-md-3 mb-3">
+                                      <label>Telephone</label>
+                                      <input type="text" name="telephone" id="edittelephone" class="form-control" value="{{$inventories->telephone}}" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                      <label>Remarks</label>
+                                      <input type="text" name="remark" id="remark" class="form-control" required>
+                                  </div>
+                              </div>
+
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  @if(Auth::user()->role == 'Admin')
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                  @endif
+                              </div>
+                            </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div> -->

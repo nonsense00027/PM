@@ -105,21 +105,8 @@
                   <tr>
                     <td>{{$accountability->id}}</td>
                     <td>{{$accountability->name}}</td>
-                    <!-- TD FOR COMPANY -->
                     <td>{{$accountability->company}}</td>
                     <td>{{$accountability->location}}</td>
-                    <!-- <td>{{$accountability->designation}}</td>
-                    <td>{{$accountability->computer_name}}</td> -->
-                    <!-- <td>{{$accountability->location}}</td> -->
-                    <!-- <td>{{$accountability->local_user}}</td>
-                    <td>{{$accountability->local_password}}</td>
-                    <td>{{$accountability->domain_acc}}</td>
-                    <td>{{$accountability->domain_pass}}</td>
-                    <td>{{$accountability->ip_address}}</td>
-                    <td>{{$accountability->mac_address}}</td>
-                    <td>{{$accountability->email}}</td> -->
-                    <!-- <td><a href="/accountabilities/{{$accountability->id}}">Hi</a></td> -->
-                    <!-- <td><a href="#edit" class="nav-link" role="tab" data-toggle="tab">Edit</a></td> -->
                     <td>
                       <!-- EDIT FUNCTION  -->
                       <a href="#" data-target="#exampleModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="Edit user information" data-placement="left" >
@@ -224,9 +211,7 @@
                                     <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
                                   </button>
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  @if(Auth::user()->role == 'Admin')
                                   <button type="submit" class="btn btn-primary">Save changes</button>
-                                  @endif
                               </div>
                             </form>
                           </div>
@@ -235,105 +220,15 @@
 
                       <!-- INVENTORY FUNCTION -->
 
-                      <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
+                      <!-- <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
+                        <i class="fas fa-th-list" title="User Accountability"></i>
+                      </a> -->
+
+                      <a data-inventory_id="{{$accountability->id}}" href="#" class="edit mx-3 editInventory" title="User Accountability" data-placement="left" >
                         <i class="fas fa-th-list" title="User Accountability"></i>
                       </a>
                       <!-- INVENTORY MODAL -->
-                      <div class="modal fade" id="inventoryModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header bg-primary">
-                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">{{$accountability->name}}'s Inventory</h5>
-                              <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <form id="editForm2" action="/inventories/{{$accountability->id}}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <div class="modal-body">
-                                  <div class="form-row">
-                                    <div class="col-md-3 mb-3">
-                                      <label>Motherboard</label>
-                                      <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                      <label>CPU</label>
-                                      <input type="text" name="location" id="editlocation" class="form-control" required>
-                                    </div>
 
-                                    <div class="col-md-3 mb-3">
-                                      <label>HDD</label>
-                                      <input type="text" name="local_user" id="editlocal_user" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Memory</label>
-                                      <input type="text" name="local_password" id="editlocal_password" class="form-control" required>
-                                    </div>
-                                  </div>
-
-                                  <div class="form-row">
-                                    <div class="col-md-3 mb-3">
-                                      <label>Monitor</label>
-                                      <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Case</label>
-                                      <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Keyboard</label>
-                                      <input type="text" name="ip_address" id="editip_address" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Mouse</label>
-                                      <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
-                                    </div>
-                                  </div>
-
-                                  <div class="form-row">
-                                    <div class="col-md-3 mb-3">
-                                      <label>Video Card</label>
-                                      <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Power Supply</label>
-                                      <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Printer</label>
-                                      <input type="text" name="ip_address" id="editip_address" class="form-control" required>
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                      <label>Telephone</label>
-                                      <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
-                                    </div>
-                                  </div>
-
-                                  <div class="form-row">
-                                      <label>Remarks</label>
-                                      <input type="text" name="remark" id="remark" class="form-control" required>
-                                  </div>
-                              </div>
-
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  @if(Auth::user()->role == 'Admin')
-                                  <button type="submit" class="btn btn-primary">Save changes</button>
-                                  @endif
-                              </div>
-                            </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
                       
                       <!-- END OF INVENTORY MODAL -->
 
@@ -380,8 +275,6 @@
                         </div>
                       </div>
 
-                      
-
                       <!-- WORKING -->
                       <!-- <a href="#" onclick="onClickModalRemark('{{$accountability->id}}')" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
@@ -398,8 +291,8 @@
 
           <!-- tab 2 is the form to add a new employee -->
           <div role="tabpanel" class="tab-pane" id="add">
-          <!-- Form starts here -->
-          <form action="/accountabilities" method="post">
+            <!-- Form starts here -->
+            <form action="/accountabilities" method="post">
               @csrf
               <div class="form-row">
                 <div class="col-md-3 mb-3">
@@ -473,108 +366,13 @@
               <button class="btn btn-block btn-secondary" type="submit" disabled>You don't have authority for this feature</button>
               @endif
             </form>
-          <!-- Form ends here -->
+            <!-- Form ends here -->
           </div>
           <!-- End of Tab 2 -->         
         </div>
 @endsection
 
 @section('modal')
-
-<!-- Edit Modal -->
-<!-- <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title text-gray-100" id="exampleModalLabel">Modify user information</h5>
-        <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
-          <span  aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form id="editForm" action="/accountabilities" method="POST">
-      @csrf
-      @method('PATCH')
-      <div class="modal-body">
-            <div class="form-row">
-              <div class="col-md-1 mb-3">
-                <label>ID</label>
-                <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" required>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label>Full Name</label>
-                <input type="text" name="name" id="editname" class="form-control bg-outline-success" required>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label>Designation</label>
-                <input type="text" name="designation" id="editdesignation" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Computer Name</label>
-                <input type="text" name="computer_name" id="editcomputer_name" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-md-5 mb-3">
-                <label>Location</label>
-                <input type="text" name="location" id="editlocation" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Local User</label>
-                <input type="text" name="local_user" id="editlocal_user" class="form-control" required>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label>Local Password</label>
-                <input type="text" name="local_password" id="editlocal_password" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-md-3 mb-3">
-                <label>Domain Account</label>
-                <input type="text" name="domain_acc" id="editdomain_acc" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Domain Password</label>
-                <input type="text" name="domain_pass" id="editdomain_pass" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>IP Address</label>
-                <input type="text" name="ip_address" id="editip_address" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>MAC Address</label>
-                <input type="text" name="mac_address" id="editmac_address" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-                <label>Email</label>
-                <input type="text" name="email" id="editemail" class="form-control" required>
-            </div>
-            <br>
-            <div class="form-row">
-                <label>Remarks</label>
-                <input type="text" name="remark" id="remark" class="form-control" required>
-            </div>
-        </div>
-      
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> -->
 
 <!-- WORKING Sample Modal -->
 <!-- <div class="modal fade" id="sampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -607,12 +405,109 @@
     </div>
   </div>
 </div> -->
+
+<!-- INVENTORY MODAL -->
+<div class="modal fade" id="editInventoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-gray-100" id="exampleModalLabel">Employees' Inventory</h5>
+        <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="editInventoryForm" action="/inventories/{{$accountability->id}}" method="POST">
+      @csrf
+      @method('PATCH')
+      <div class="modal-body">
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label>Motherboard</label>
+                <input type="text" name="motherboard" id="editmotherboard" class="form-control" required>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label>CPU</label>
+                <input type="text" name="cpu" id="editcpu" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>HDD</label>
+                <input type="text" name="hdd" id="edithdd" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Memory</label>
+                <input type="text" name="memory" id="editmemory" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label>Monitor</label>
+                <input type="text" name="monitor" id="editmonitor" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Case</label>
+                <input type="text" name="case" id="editcase" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Keyboard</label>
+                <input type="text" name="keyboard" id="editkeyboard" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Mouse</label>
+                <input type="text" name="mouse" id="editmouse" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label>Video Card</label>
+                <input type="text" name="video_card" id="editvideo_card" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Power Supply</label>
+                <input type="text" name="power_supply" id="editpower_supply" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Printer</label>
+                <input type="text" name="printer" id="editprinter" class="form-control" required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label>Telephone</label>
+                <input type="text" name="telephone" id="edittelephone" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+                <label>Remarks</label>
+                <input type="text" name="remark" id="remark" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            @if(Auth::user()->role == 'Admin')
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            @endif
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('script')
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -629,113 +524,41 @@
         $('#myDataTable').DataTable();
     } );
   </script>
-
-
-<!-- Edit Script -->
-<!-- <script type="text/javascript">
-    $(document).ready(function(){
-        var table = $('#myDataTable').DataTable();
-        table.on('click', '.edit', function(){
-            $tr = $(this).closest('tr');
-            if($($tr).hasClass('child')){
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-            console.log(data);
-            $('#editid').val(data[0]);
-            $('#editname').val(data[1]);
-            $('#editdesignation').val(data[2]);
-            $('#editcomputer_name').val(data[3]);
-            $('#editlocation').val(data[4]);
-            $('#editlocal_user').val(data[5]);
-            $('#editlocal_password').val(data[6]);
-            $('#editdomain_acc').val(data[7]);
-            $('#editdomain_pass').val(data[8]);
-            $('#editip_address').val(data[9]);
-            $('#editmac_address').val(data[10]);
-            $('#editemail').val(data[11]);
-
-            $('#editForm').attr('action', '/accountabilities/'+data[0]);
-            $('#exampleModal').modal('show');
-        });
-    });
-
-</script> -->
-<!-- End of Edit Script -->
-
-<!-- Log Script -->
-<!-- <script type="text/javascript">
-
-    $(document).ready(function(){
-        var table = $('#myDataTable').DataTable();
-        table.on('click', '.log', function(){
-            $tr = $(this).closest('tr');
-            if($($tr).hasClass('child')){
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-            // console.log(data);
-            // $('#editid').val(data[0]);
-            // $('#editname').val(data[1]);
-            // $('#editdesignation').val(data[2]);
-            // $('#editcomputer_name').val(data[3]);
-            // $('#editlocation').val(data[4]);
-            // $('#editlocal_user').val(data[5]);
-            // $('#editlocal_password').val(data[6]);
-            // $('#editdomain_acc').val(data[7]);
-            // $('#editdomain_pass').val(data[8]);
-            // $('#editip_address').val(data[9]);
-            // $('#editmac_address').val(data[10]);
-            // $('#editemail').val(data[11]);
-
-            // $('#editForm').attr('action', '/accountabilities/'+data[0]);
-            $('#sampleModal').modal('show');
-        });
-    });
-
-</script> -->
-
-
-<!-- End of Log Script -->
+  
 <script>
-
-
-
-function onClickModalRemark(id){
-  $('#remarktable').empty();
-  axios.get('/remarks/' + id)
-  .then(function (response) {
-    for(var i=0;i<response.data.length;i++){
-      var row = '<tr>'
-      + '<td>'+ `${response.data[i].id}` + '</td>'
-      + '<td>'+ `${response.data[i].remark}` + '</td>'
-      + '<td>'+ `${response.data[i].created_at}` + '</td>'
-      +'</tr>';
-      $('#remarktable').append(row);
-    }
-    // $('#remarktable').append(response->id);
-      // console.log(response.data);
-    
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-  });
-}
-
+$('.editInventory').click(function(e)
+{
+  e.preventDefault();
+  var x = $(this).data('inventory_id');
+  console.log(x);
+  function()
+  {
+    $.ajax({
+      type: 'POST',
+      url: '/getInventory',
+      data: 
+      {
+        '_token': $('input[name=_token]').val(),
+        'inventory_id': x
+      },
+      success:function(data)
+      {
+        console.log('success');
+      }
+    });
+  };
+});
 </script>
 
-   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-  
-  <script>
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-  </script>
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
 @endsection

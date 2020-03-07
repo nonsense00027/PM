@@ -21,12 +21,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@store');
 
+// ACCOUNTABILITY
 Route::get('/accountabilities', 'AccountabilityController@index')->name('home');
 Route::post('/accountabilities', 'AccountabilityController@store');
-// Route::resource('/accountabilities', 'AccountabilityController');
 Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');
+
+// INVENTORY
 Route::patch('/inventories/{accountability}', 'InventoryController@update');
 Route::get('/inventories', 'InventoryController@index');
+Route::post('/getInventory', 'InventoryController@getInventory');
 
 Route::get('/register', 'HomeController@register');
 Route::post('/register', 'HomeController@store');

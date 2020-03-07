@@ -15,6 +15,14 @@ class InventoryController extends Controller
     public function index(){
         return view('inventory.index');
     }
+
+    public function getInventory(Request $request){
+        // dd('naa ko sa controller');
+        $inventory = Costume::where('id','=',$request->inventory_id)->get();
+        return response()->json($inventory);
+    }
+
+
     public function update(Request $request, \App\Inventory $inventory){
         // dd($request->domain_acc);
         $data = request()->validate([
