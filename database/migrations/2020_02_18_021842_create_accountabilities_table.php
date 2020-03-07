@@ -22,7 +22,7 @@ class CreateAccountabilitiesTable extends Migration
             $table->string('location');
             $table->string('local_user')->nullable();
             $table->string('local_password')->nullable();
-            $table->string('domain_acc')->nullable();
+            $table->string('domain_acc')->nullable();   
             $table->string('domain_pass')->nullable();
             $table->string('ip_address')->nullable();
             $table->string('mac_address')->nullable();

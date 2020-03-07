@@ -92,7 +92,7 @@
                 <tbody>
                 @foreach ($accountabilities as $accountability)
                   @if($accountability->status == 'false')
-                  <tr style="background-color: #e8e8e8">
+                  <tr style="background-color: #edd5c4">
                     <!-- <td class="text-white">{{$accountability->id}}</td>
                     <td class="text-white">{{$accountability->name}}</td>
                     <td class="text-white">{{$accountability->company}}</td>
