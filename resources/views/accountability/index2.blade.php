@@ -21,7 +21,7 @@
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <div class="text-center">
           <br><br><br><br>
-            <span class="text-center text-gray-100 text-lg small"><b>{{ Auth::user()->name}} Deptartment</b></span>
+            <span class="text-center text-gray-100 text-lg small"><b>{{ Auth::user()->abbreviation}} Deptartment</b></span>
           <br><br><br><br>
           </div>
           <!-- </a> -->
@@ -92,34 +92,41 @@
                 <tbody>
                 @foreach ($accountabilities as $accountability)
                   @if($accountability->status == 'false')
-                  <tr>
-                  @elseif($accountability->status == 'true')
+                  <tr style="background-color: #e8e8e8">
+                    <!-- <td class="text-white">{{$accountability->id}}</td>
+                    <td class="text-white">{{$accountability->name}}</td>
+                    <td class="text-white">{{$accountability->company}}</td>
+                    <td class="text-white">{{$accountability->location}}</td> -->
+                  @else
                   <tr>
                   @endif
                     <td>{{$accountability->id}}</td>
                     <td>{{$accountability->name}}</td>
                     <td>{{$accountability->company}}</td>
                     <td>{{$accountability->location}}</td>
+                  
                     <td>
                       <!-- EDIT FUNCTION  -->
                       <a href="#" data-target="#exampleModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="Edit user information" data-placement="left" >
                         <i class="fas fa-pen" title="Edit user information"></i>
                       </a>
                       <!-- EDIT MODAL -->
-                      @if(Auth::user()->name == 'HR')
+                      @if(Auth::user()->name == 'Human Resource')
                         @include('layouts.edit.hr')
                       @elseif(Auth::user()->name == 'Information Technology')
                         @include('layouts.edit.it')
+                      @else
+                        @include('layouts.edit.other')
                       @endif
                       <!-- INVENTORY FUNCTION -->
 
-                      <!-- <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
-                        <i class="fas fa-th-list" title="User Accountability"></i>
-                      </a> -->
-
-                      <a data-inventory_id="{{$accountability->id}}" href="#" class="edit mx-3 editInventory" title="User Accountability" data-placement="left" >
+                      <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
                         <i class="fas fa-th-list" title="User Accountability"></i>
                       </a>
+
+                      <!-- <a data-inventory_id="{{$accountability->id}}" href="#" class="edit mx-3 editInventory" title="User Accountability" data-placement="left" >
+                        <i class="fas fa-th-list" title="User Accountability"></i>
+                      </a> -->
                       <!-- INVENTORY MODAL -->
                       @if(Auth::user()->name == 'Information Technology')
                         @include('layouts.inventory.it')
@@ -205,7 +212,7 @@
                     <label>Designation</label>
                     <input type="text" class="form-control" name="designation" value="{{old('designation')}}" placeholder="Designation here..." required>
                   </div>
-
+                </div>
                 <div class="form-row">
                   <div class="col-md-6 mb-3">
                     <label>Location</label>
@@ -264,102 +271,7 @@
   </div>
 </div> -->
 
-<!-- INVENTORY MODAL -->
-<div class="modal fade" id="editInventoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title text-gray-100" id="exampleModalLabel">Employees' Inventory</h5>
-        <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form id="editInventoryForm" action="/inventories/{{$accountability->id}}" method="POST">
-      @csrf
-      @method('PATCH')
-      <div class="modal-body">
-            <div class="form-row">
-              <div class="col-md-3 mb-3">
-                <label>Motherboard</label>
-                <input type="text" name="motherboard" id="editmotherboard" class="form-control" required>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label>CPU</label>
-                <input type="text" name="cpu" id="editcpu" class="form-control" required>
-              </div>
 
-              <div class="col-md-3 mb-3">
-                <label>HDD</label>
-                <input type="text" name="hdd" id="edithdd" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Memory</label>
-                <input type="text" name="memory" id="editmemory" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-md-3 mb-3">
-                <label>Monitor</label>
-                <input type="text" name="monitor" id="editmonitor" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Case</label>
-                <input type="text" name="case" id="editcase" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Keyboard</label>
-                <input type="text" name="keyboard" id="editkeyboard" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Mouse</label>
-                <input type="text" name="mouse" id="editmouse" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-md-3 mb-3">
-                <label>Video Card</label>
-                <input type="text" name="video_card" id="editvideo_card" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Power Supply</label>
-                <input type="text" name="power_supply" id="editpower_supply" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Printer</label>
-                <input type="text" name="printer" id="editprinter" class="form-control" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label>Telephone</label>
-                <input type="text" name="telephone" id="edittelephone" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-                <label>Remarks</label>
-                <input type="text" name="remark" id="remark" class="form-control" required>
-            </div>
-        </div>
-
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            @if(Auth::user()->role == 'Admin')
-            <button type="submit" class="btn btn-primary">Save changes</button>
-            @endif
-        </div>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
 @endsection
 
 @section('script')

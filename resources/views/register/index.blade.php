@@ -90,7 +90,7 @@
                         
                       <div class="col-md-3 mb-3">
                         <label for="name">Department Abbreviation</label>
-                        <input class="form-control bg-light small @error('name') is-invalid @enderror" placeholder="SMPL" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text">
+                        <input class="form-control bg-light small @error('name') is-invalid @enderror" placeholder="SMPL" name="abbreviation" value="{{ old('name') }}" required autocomplete="name" autofocus p id="name" type="text">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -135,13 +135,14 @@
       </div>
     @if(Auth::user()->role == 'Admin')
       <div role="tabpanel" class="tab-pane active" id="pass">
-        <form action="/users/{{Auth::user()->id}}" method="POST">
+        <form action="/users/reset" method="POST">
         @csrf
+        @method('PATCH')
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Departments</label>
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
+              <select class="custom-select" id="inputGroupSelect01" name="id">
                 <option selected>Choose...</option>
                 @foreach($users as $user)
                 <option value="{{$user->id}}">{{$user->name}}</option>
@@ -149,23 +150,22 @@
               </select>
             </div>
 
-            <label for="name">Old Password</label>
+            <!-- <label for="name">Old Password</label>
               <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
               <span class="invalid-feedback" role="alert">
                 <strong></strong>
-            </span><br>
+            </span><br> -->
 
-            <label for="name">New Password</label>
-              <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
-              <span class="invalid-feedback" role="alert">
-                <strong></strong>
-            </span><br>
+            <label for="password">New Password</label>
+            <input class="form-control bg-light small @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" p id="password" type="password"><br>
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
 
-            <label for="name">Re-type New Password</label>
-              <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
-              <span class="invalid-feedback" role="alert">
-                <strong></strong>
-            </span><br>
+            <label for="password-confirm">Re-type password</label>
+            <input id="password-confirm" type="password" class="form-control bg-light" name="password_confirmation" required autocomplete="new-password"><br>
 
             <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Submit</button>
         </form>

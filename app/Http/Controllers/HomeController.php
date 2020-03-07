@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Hash;
-
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -42,6 +42,7 @@ class HomeController extends Controller
       // dd($request);
       $request->validate([
         'name' => ['required', 'string', 'max:255'],
+        'abbreviation' => ['required', 'string', 'max:5'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'string', 'min:5', 'confirmed'],
         'role' =>['required', 'string']
@@ -61,6 +62,20 @@ class HomeController extends Controller
       $request->merge(['password' => Hash::make($request->password)]);
       // dd($request->all());
       $user->update($request->all());
+      Alert::success('Edit Success!');
+      return redirect()->back();
+    }
+
+    public function reset(Request $request){
+      // dd($request->id);
+      $request->validate([
+        'password' => ['required', 'string', 'min:5', 'confirmed']
+      ]);
+      $request->merge(['password' => Hash::make($request->password)]);
+      // dd($request->all());
+      $user=User::find($request->id);
+      $user->password=$request->password;
+      $user->save();
       Alert::success('Edit Success!');
       return redirect()->back();
     }

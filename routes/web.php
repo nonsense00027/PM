@@ -32,6 +32,8 @@ Route::post('/getInventory', 'InventoryController@getInventory');
 Route::get('/register', 'HomeController@register');
 Route::post('/register', 'HomeController@store');
 Route::get('/test', 'HomeController@test');
+
+Route::patch('/users/reset', 'HomeController@reset');
 Route::patch('/users/{user}', 'HomeController@update');
 
 Route::get('/logout', function(){

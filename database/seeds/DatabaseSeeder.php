@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name'=>'Information Technology',
+            'abbreviation'=>'IT',
             'email'=>'admin@it.com',
             'password'=>Hash::make('itpass'),
             'role'=>'Admin'
@@ -35,11 +36,12 @@ class DatabaseSeeder extends Seeder
         //     'telephone'=>''
         // ]);
         
-        // DB::table('users')->insert([
-        //     'name'=>'Human Resource',
-        //     'email'=>'admin@hr.com',
-        //     'password'=>Hash::make('hrpass'),
-        //     'role'=>'User'
-        // ]);
+        DB::table('users')->insert([
+            'name'=>'Human Resource',
+            'abbreviation'=>'HR',
+            'email'=>'admin@hr.com',
+            'password'=>Hash::make('hrpass'),
+            'role'=>'User'
+        ]);
     }
 }

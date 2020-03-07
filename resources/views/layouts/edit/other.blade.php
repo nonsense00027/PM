@@ -19,17 +19,17 @@
 
             <div class="col-md-4 mb-3">
                 <label>Full Name</label>
-                <input type="text" name="name" id="editname" class="form-control bg-outline-success" value="{{$accountability->name}}" required>
+                <input readonly type="text" name="name" id="editname" class="form-control bg-outline-success" value="{{$accountability->name}}" required>
             </div>
 
             <div class="col-md-4 mb-3">
                 <label>Company</label>
-                <input type="text" name="company" id="editcompany" class="form-control bg-outline-success" value="{{$accountability->company}}" required>
+                <input readonly type="text" name="company" id="editcompany" class="form-control bg-outline-success" value="{{$accountability->company}}" required>
             </div>
 
             <div class="col-md-3 mb-3">
                 <label>Designation</label>
-                <input type="text" name="designation" id="editdesignation" class="form-control" value="{{$accountability->designation}}" required>
+                <input readonlytype="text" name="designation" id="editdesignation" class="form-control" value="{{$accountability->designation}}" required>
             </div>
             </div>
 
@@ -37,7 +37,7 @@
             
             <div class="col-md-3 mb-3">
                 <label>Location</label>
-                <input type="text" name="location" id="editlocation" class="form-control" value="{{$accountability->location}}" required>
+                <input readonly type="text" name="location" id="editlocation" class="form-control" value="{{$accountability->location}}" required>
             </div>
             <div class="col-md-3 mb-3">
                 <label>Computer Name</label>
@@ -79,14 +79,14 @@
 
             <div class="form-row">
                 <label>Email</label>
-                <input type="text" name="email" id="editemail" class="form-control" value="{{$accountability->email}}" required>
+                <input readonly type="text" name="email" id="editemail" class="form-control" value="{{$accountability->email}}" required>
             </div>
             <input type="hidden" name="status" value="true">
-            <br>
+            <!-- <br>
             <div class="form-row">
                 <label id="remarksForPrint">Remarks</label>
                 <input type="text" name="remark" id="remark" class="form-control" required>
-            </div>
+            </div> -->
         </div>
     
         <div class="modal-footer">
@@ -97,7 +97,6 @@
             <!-- <button type="button" class="btn btn-success" id="printButton">
             <i class="fas fa-print" title="Edit user information"></i>&nbsp&nbspPrint
             </button> -->
-            <button id="saveBtn" type="submit" class="btn btn-primary">Save changes</button>
             <button id="cancelBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             
         </div>
