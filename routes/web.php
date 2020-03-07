@@ -25,15 +25,14 @@ Route::post('/home', 'HomeController@store');
 Route::get('/accountabilities', 'AccountabilityController@index')->name('home');
 Route::post('/accountabilities', 'AccountabilityController@store');
 Route::patch('/accountabilities/{accountability}', 'AccountabilityController@update');
-
-// INVENTORY
-Route::patch('/inventories/{accountability}', 'InventoryController@update');
+Route::patch('/inventories/{inventory}', 'InventoryController@update');
 Route::get('/inventories', 'InventoryController@index');
 Route::post('/getInventory', 'InventoryController@getInventory');
 
 Route::get('/register', 'HomeController@register');
 Route::post('/register', 'HomeController@store');
 Route::get('/test', 'HomeController@test');
+Route::patch('/users/{user}', 'HomeController@update');
 
 Route::get('/logout', function(){
         Session::flush();

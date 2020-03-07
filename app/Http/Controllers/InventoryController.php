@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class InventoryController extends Controller
 {
@@ -24,7 +25,7 @@ class InventoryController extends Controller
 
 
     public function update(Request $request, \App\Inventory $inventory){
-        // dd($request->domain_acc);
+        // dd($request->motherboard);
         $data = request()->validate([
             'motherboard'=>'required',
             'cpu'=>'required',
@@ -47,7 +48,7 @@ class InventoryController extends Controller
           // dd($data2);
           $inventory->update($data);
           \App\Log::create($data2);
-          Alert::success('Edit Success!', $request->name.' has been successfully edited');
+          Alert::success('Edit Success!');
           return redirect()->back();
     }
 }

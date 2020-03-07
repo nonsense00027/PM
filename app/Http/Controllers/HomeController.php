@@ -34,11 +34,12 @@ class HomeController extends Controller
     }
 
     public function register(){
-      return view('register.index');
+      $users = \App\User::all();
+      return view('register.index', compact('users'));
     }
 
     public function store(Request $request){
-      // dd($request->name);
+      // dd($request);
       $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -50,5 +51,17 @@ class HomeController extends Controller
         \App\User::create($request->all());
         Alert::success('Success!', $request->name.' has been successfully added');
         return redirect()->back();
+    }
+
+    public function update(Request $request, \App\User $user){
+      // dd($user);
+      $request->validate([
+        'password' => ['required', 'string', 'min:5', 'confirmed']
+      ]);
+      $request->merge(['password' => Hash::make($request->password)]);
+      // dd($request->all());
+      $user->update($request->all());
+      Alert::success('Edit Success!');
+      return redirect()->back();
     }
 }

@@ -20,7 +20,7 @@
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <div class="text-center">
           <br><br><br><br>
-            <span class="text-center text-gray-100 text-lg small"><b>IT Deptartment</b></span>
+            <span class="text-center text-gray-100 text-lg small"><b>{{ Auth::user()->name}} Deptartment</b></span>
           <br><br><br><br>
           </div>
           <!-- </a> -->
@@ -46,7 +46,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/register">
           <i class="fas fa-fw fa-user text-gray-100"></i>
-          <span>Register</span></a>
+          <span>Account Management</span></a>
       </li>
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -56,21 +56,25 @@
 
     </ul>
     @endsection
-    @section('heading', 'Register')
-    @section('tableheading', 'Register new Department')
+    @section('heading', 'Account Management')
+    @section('tableheading', 'Manage department accounts')
     @section('taboption')
+        
         <li class="nav-item">
-            <a href="#add" class="nav-link active" role="tab" data-toggle="tab">Add</a>
+            <a href="#pass" class="nav-link active" role="tab" data-toggle="tab">Password Management</a>
         </li>
 
+        @if(Auth::user()->role == 'Admin')
         <li class="nav-item">
-            <a href="#pass" class="nav-link" role="tab" data-toggle="tab">Password Management</a>
+            <a href="#add" class="nav-link" role="tab" data-toggle="tab">Add</a>
         </li>
+        @endif
+        
     @endsection
     
     @section('tabcontent')
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="add">
+      <div role="tabpanel" class="tab-pane" id="add">
                 <form method="POST" action="/register">
                     <div class="form-row">
                       <div class="col-md-9 mb-3">
@@ -129,40 +133,69 @@
                       <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Register</button>
                   </form>
       </div>
-
+    @if(Auth::user()->role == 'Admin')
       <div role="tabpanel" class="tab-pane active" id="pass">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Departments</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
+        <form action="/users/{{Auth::user()->id}}" method="POST">
+        @csrf
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Departments</label>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+              </select>
+            </div>
 
-        <label for="name">Old Password</label>
-          <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
-          <span class="invalid-feedback" role="alert">
-            <strong></strong>
-        </span><br>
+            <label for="name">Old Password</label>
+              <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
+              <span class="invalid-feedback" role="alert">
+                <strong></strong>
+            </span><br>
 
-        <label for="name">New Password</label>
-          <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
-          <span class="invalid-feedback" role="alert">
-            <strong></strong>
-        </span><br>
+            <label for="name">New Password</label>
+              <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
+              <span class="invalid-feedback" role="alert">
+                <strong></strong>
+            </span><br>
 
-        <label for="name">Re-type New Password</label>
-          <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
-          <span class="invalid-feedback" role="alert">
-            <strong></strong>
-        </span><br>
+            <label for="name">Re-type New Password</label>
+              <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
+              <span class="invalid-feedback" role="alert">
+                <strong></strong>
+            </span><br>
 
-        <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Submit</button>
+            <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Submit</button>
+        </form>
       </div>
+    @elseif(Auth::user()->role != 'Admin')
+    <div role="tabpanel" class="tab-pane active" id="pass">
+        <form action="/users/{{Auth::user()->id}}" method="POST">
+        @csrf
+        @method('PATCH')
+            <!-- <label for="name">Old Password</label>
+              <input class="form-control bg-light" name="name" value="" required autocomplete="name" autofocus p id="" type="password">
+              <span class="invalid-feedback" role="alert">
+                <strong></strong>
+            </span><br> -->
+            <!-- <input type="hidden" name="token" value="{{Auth::user()->token}}"> -->
+            <label for="password">Enter New Password</label>
+            <input class="form-control bg-light small @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" p id="password" type="password"><br>
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
+            <label for="password-confirm">Re-type password</label>
+            <input id="password-confirm" type="password" class="form-control bg-light" name="password_confirmation" required autocomplete="new-password"><br>
+
+            <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Submit</button>
+        </form>
+      </div>
+    @endif
     </div>
     
     @endsection
