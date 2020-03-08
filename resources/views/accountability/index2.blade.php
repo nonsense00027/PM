@@ -86,13 +86,14 @@
                     <th class="col-12">Name</th>
                     <th>Company</th>
                     <th  class="col-3">Location</th>
+                    <th>User Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                 @foreach ($accountabilities as $accountability)
                   @if($accountability->status == 'false')
-                  <tr style="background-color: #edd5c4">
+                  <tr style="background-color: #a7f1f9">
                     <!-- <td class="text-white">{{$accountability->id}}</td>
                     <td class="text-white">{{$accountability->name}}</td>
                     <td class="text-white">{{$accountability->company}}</td>
@@ -104,6 +105,10 @@
                     <td>{{$accountability->name}}</td>
                     <td>{{$accountability->company}}</td>
                     <td>{{$accountability->location}}</td>
+                    <td>
+                      <i class="fa fa-user-plus text-success"></i>&nbsp&nbsp
+                      Active
+                    </td>
                   
                     <td>
                       <!-- EDIT FUNCTION  -->
@@ -178,12 +183,50 @@
                         </div>
                       </div>
 
+                      <a href="#" data-target="#exampleModal" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
+                        <i class="fa fa-cog" title="Set user status"></i>
+                      </a>
+
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{$accountability->name}}'s account status</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Account status</label>
+                              </div>
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                <option value="1">Active</option>
+                                <option value="2">Resigned</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      
+
+                      <!-- Set status modal -->
+
                       <!-- WORKING -->
                       <!-- <a href="#" onclick="onClickModalRemark('{{$accountability->id}}')" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
                       </a> -->
 
                     </td>
+
+                    
                   </tr>
                   @endforeach
                 </tbody>
