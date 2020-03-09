@@ -50,14 +50,14 @@ class AccountabilityController extends Controller
             'name'=>'required',
             'company'=>'required',
             'designation'=>'required',
-            'computer_name'=>'required',
+            // 'computer_name'=>'required',
             'location'=>'required',
-            'local_user'=>'required',
-            'local_password'=>'required',
-            'domain_acc'=>'required',
-            'domain_pass'=>'required',
-            'ip_address'=>'required',
-            'mac_address'=>'required',
+            // 'local_user'=>'required',
+            // 'local_password'=>'required',
+            // 'domain_acc'=>'required',
+            // 'domain_pass'=>'required',
+            // 'ip_address'=>'required',
+            // 'mac_address'=>'required',
             'email'=>'required',
             'status'=>'required'
           ]);
@@ -72,6 +72,35 @@ class AccountabilityController extends Controller
           Alert::success('Edit Success!');
           return redirect()->back();
     }
+
+    public function update2(Request $request, \App\Accountability $accountability){
+      // dd($request->domain_acc);
+      $data = request()->validate([
+          'name'=>'required',
+          'company'=>'required',
+          'designation'=>'required',
+          'computer_name'=>'required',
+          'location'=>'required',
+          'local_user'=>'required',
+          'local_password'=>'required',
+          'domain_acc'=>'required',
+          'domain_pass'=>'required',
+          'ip_address'=>'required',
+          'mac_address'=>'required',
+          'email'=>'required',
+          'status'=>'required'
+        ]);
+
+        $data2 = request()->validate([
+          'id' =>'required',
+          'remark' =>'required'
+        ]);
+        // dd($data2);
+        $accountability->update($data);
+        \App\Log::create($data2);
+        Alert::success('Edit Success!');
+        return redirect()->back();
+  }
 
     public function active(Request $request, \App\Accountability $accountability){
       // dd($request->active);

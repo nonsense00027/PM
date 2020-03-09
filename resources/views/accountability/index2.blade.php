@@ -153,83 +153,18 @@
                       <a href="#"  data-target="#sampleModal-{{$accountability->id}}" class="log mx-3"  data-toggle="modal" title="View logs" >
                         <i class="fas fa-info" title="View logs"></i>
                       </a>
+
                       <!-- LOGS MODAL -->
-                      <div class="modal fade" id="sampleModal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header bg-primary">
-                              <h5 class="modal-title text-gray-100" id="exampleModalLabel">{{$accountability->name}}'s logs</h5>
-                              <button type="button" class="close text-gray-100" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
-                                <thead class="bg-primary text-white">
-                                  <tr>
-                                    <th>Id</th>
-                                    <th>Remarks</th>
-                                    <th>Date</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  @foreach($logs as $log)
-                                    @if($log->id == $accountability->id)
-                                    <tr>
-                                      <td>{{$log->id}}</td>
-                                      <td>{{$log->remark}}</td>
-                                      <td>{{$log->created_at}}</td>
-                                    </tr>
-                                    @endif
-                                  @endforeach
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      @include('layouts.log')
+                      <!-- END OF LOGS MODAL -->
 
                       <a href="#" data-target="#activatemodal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
                         <i class="fa fa-cog" title="Set user status"></i>
                       </a>
 
-                      <div class="modal fade" id="activatemodal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{{$accountability->name}}'s account status</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <form action="/accountabilities/active/{{$accountability->id}}" method="post">
-                          @csrf
-                          @method('PATCH')
-                          <div class="modal-body">
-                          @if($accountability->active == '1')
-                            This user is active. Would you like  to set him/her to resigned?
-                            <input type="hidden" name="active" value="0">
-                          @else
-                            This user is resigned. Would you like  to set him/her to active?
-                            <input type="hidden" name="active" value="1">
-                          @endif
-                          
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          @if($accountability->active == '1')
-                            <button type="submit" class="btn btn-danger" title="Set user to resigned">Resigned</button>
-                          @else
-                            <button type="submit" class="btn btn-success" title="Set user to active">Active</button>
-                          @endif 
-                          </div>
-                        </div>
-                        </form>
-                      </div>
-                    </div>
-                      
-
-                      <!-- Set status modal -->
+                      <!-- ACTIVE/RESIGN MODAL -->
+                      @include('layouts.status')
+                      <!-- END ACTIVE/RESIGN MODAL -->
 
                       <!-- WORKING -->
                       <!-- <a href="#" onclick="onClickModalRemark('{{$accountability->id}}')" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
@@ -237,8 +172,6 @@
                       </a> -->
 
                     </td>
-
-                    
                   </tr>
                   @endforeach
                 </tbody>
@@ -248,46 +181,7 @@
           <!-- end of tab 1 -->
 
           <!-- tab 2 is the form to add a new employee -->
-          <div role="tabpanel" class="tab-pane" id="add">
-            <!-- Form starts here -->
-              <form action="/accountabilities" method="POST">
-                @csrf
-                <div class="form-row">
-                  <div class="col-md-4 mb-3">
-                    <label>Full Name</label>
-                    <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Full Name here..." required>
-                  </div>
-
-                  <div class="col-md-4 mb-3">
-                    <label>Company</label>
-                    <input type="text" class="form-control" name="company" value="{{old('company')}}" placeholder="Company here..." required>
-                  </div>
-
-                  <div class="col-md-4 mb-3">
-                    <label>Designation</label>
-                    <input type="text" class="form-control" name="designation" value="{{old('designation')}}" placeholder="Designation here..." required>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <label>Location</label>
-                    <input type="text" class="form-control" name="location" value="{{old('location')}}" placeholder="Location here..." required>
-                  </div>
-
-                    <div class="col-md-6 mb-3">
-                      <label>Email</label>
-                      <input type="email" class="form-control" name="email" placeholder="Email here..." value="{{old('email')}}"  required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <input type="hidden" class="form-control" name="status" value="false">
-                </div>
-                <br>
-                <button class="btn btn-block btn-outline-primary" type="submit">Submit form</button>
-              </form>
-            <!-- Form ends here -->
-          </div>
+          @include('layouts.tabs.add')
           <!-- End of Tab 2 -->         
         </div>
 @endsection

@@ -7,7 +7,7 @@
         <span  aria-hidden="true">&times;</span>
         </button>
     </div>
-    <form id="editForm1" action="/accountabilities/{{$accountability->id}}" method="POST">
+    <form id="editForm1" action="/accountabilities/{{$accountability->id}}/it" method="POST">
     @csrf
     @method('PATCH')
     <div class="modal-body">
