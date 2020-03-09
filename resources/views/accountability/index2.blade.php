@@ -85,7 +85,7 @@
                     <th class="col-0">ID</th>
                     <th class="col-12">Name</th>
                     <th>Company</th>
-                    <th  class="col-3">Location</th>
+                    <th  class="col-3">Designation</th>
                     <th>User Status</th>
                     <th>Actions</th>
                   </tr>
@@ -104,10 +104,16 @@
                     <td>{{$accountability->id}}</td>
                     <td>{{$accountability->name}}</td>
                     <td>{{$accountability->company}}</td>
-                    <td>{{$accountability->location}}</td>
+                    <td>{{$accountability->designation}}</td>
                     <td>
+                      @if($accountability->active == '1')
                       <i class="fa fa-user-plus text-success"></i>&nbsp&nbsp
                       Active
+                      @else
+                      <i class="fa fa-user-times text-danger"></i>&nbsp&nbsp
+                      Resigned
+                      @endif
+                      
                     </td>
                   
                     <td>
@@ -196,19 +202,29 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
+                          <form action="/accountabilities/active/{{$accountability->id}}" method="post">
+                          @csrf
+                          @method('PATCH')
                           <div class="modal-body">
-                          
+                          @if($accountability->active == '1')
                             This user is active. Would you like  to set him/her to resigned?
-
+                            <input type="hidden" name="active" value="0">
+                          @else
                             This user is resigned. Would you like  to set him/her to active?
+                            <input type="hidden" name="active" value="1">
+                          @endif
+                          
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                            <button type="button" class="btn btn-success" title="Set user to active">Active</button>
-                            <button type="button" class="btn btn-danger" title="Set user to resigned">Resigned</button>
+                          @if($accountability->active == '1')
+                            <button type="submit" class="btn btn-danger" title="Set user to resigned">Resigned</button>
+                          @else
+                            <button type="submit" class="btn btn-success" title="Set user to active">Active</button>
+                          @endif 
                           </div>
                         </div>
+                        </form>
                       </div>
                     </div>
                       

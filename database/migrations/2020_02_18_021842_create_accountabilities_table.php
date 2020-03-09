@@ -28,6 +28,7 @@ class CreateAccountabilitiesTable extends Migration
             $table->string('mac_address')->nullable();
             $table->string('email');
             $table->string('status');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

@@ -72,4 +72,14 @@ class AccountabilityController extends Controller
           Alert::success('Edit Success!');
           return redirect()->back();
     }
+
+    public function active(Request $request, \App\Accountability $accountability){
+      // dd($request->active);
+      $data = request()->validate([
+        'active'=>'required'
+      ]);
+      $accountability->update($data);
+      Alert::success('<h3> User status <br>  successfully updated</h3>');
+      return redirect()->back();
+    }
 }

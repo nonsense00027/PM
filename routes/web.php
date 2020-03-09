@@ -36,6 +36,7 @@ Route::get('/test', 'HomeController@test');
 Route::patch('/users/reset', 'HomeController@reset');
 Route::patch('/users/{user}', 'HomeController@update');
 
+Route::patch('/accountabilities/active/{accountability}', 'AccountabilityController@active');
 Route::get('/logout', function(){
         Session::flush();
         Auth::logout();
