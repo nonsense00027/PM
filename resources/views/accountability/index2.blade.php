@@ -189,11 +189,11 @@
                         </div>
                       </div>
 
-                      <a href="#" data-target="#exampleModal" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
+                      <a href="#" data-target="#activatemodal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
                         <i class="fa fa-cog" title="Set user status"></i>
                       </a>
 
-                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="activatemodal-{{$accountability->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
