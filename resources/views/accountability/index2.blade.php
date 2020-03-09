@@ -197,20 +197,16 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Account status</label>
-                              </div>
-                              <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">Active</option>
-                                <option value="2">Resigned</option>
-                              </select>
-                            </div>
+                          
+                            This user is active. Would you like  to set him/her to resigned?
+
+                            This user is resigned. Would you like  to set him/her to active?
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+
+                            <button type="button" class="btn btn-success" title="Set user to active">Active</button>
+                            <button type="button" class="btn btn-danger" title="Set user to resigned">Resigned</button>
                           </div>
                         </div>
                       </div>
