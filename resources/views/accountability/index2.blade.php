@@ -63,7 +63,13 @@
 @section('tableheading', 'Employees Accountability')
 @section('taboption')
         <li class="nav-item">
-            <a href="#list" class="nav-link active" role="tab" data-toggle="tab">List</a>
+            <a href="#list" class="nav-link active" role="tab" data-toggle="tab">Active</a>
+        </li>
+        <li class="nav-item">
+            <a href="#inc" class="nav-link" role="tab" data-toggle="tab">Incomplete</a>
+        </li>
+        <li class="nav-item">
+            <a href="#resign" class="nav-link" role="tab" data-toggle="tab">Resigned</a>
         </li>
         @if(Auth::user()->name == 'Human Resource')
         <li class="nav-item">
@@ -77,110 +83,18 @@
         <div class="tab-content">
 
           <!-- Tab 1 is the list of the employees -->
-          <div role="tabpanel" class="tab-pane active" id="list">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover nowrap" id="myDataTable" width="100%" cellspacing="0">
-                <thead class="bg-primary text-white">
-                  <tr>
-                    <th class="col-0">ID</th>
-                    <th class="col-12">Name</th>
-                    <th>Company</th>
-                    <th  class="col-3">Designation</th>
-                    <th>User Status</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach ($accountabilities as $accountability)
-                  @if($accountability->status == 'false')
-                  <tr style="background-color: #a7f1f9">
-                    <!-- <td class="text-white">{{$accountability->id}}</td>
-                    <td class="text-white">{{$accountability->name}}</td>
-                    <td class="text-white">{{$accountability->company}}</td>
-                    <td class="text-white">{{$accountability->location}}</td> -->
-                  @else
-                  <tr>
-                  @endif
-                    <td>{{$accountability->id}}</td>
-                    <td>{{$accountability->name}}</td>
-                    <td>{{$accountability->company}}</td>
-                    <td>{{$accountability->designation}}</td>
-                    <td>
-                      @if($accountability->active == '1')
-                      <i class="fa fa-user-plus text-success"></i>&nbsp&nbsp
-                      Active
-                      @else
-                      <i class="fa fa-user-times text-danger"></i>&nbsp&nbsp
-                      Resigned
-                      @endif
-                      
-                    </td>
-                  
-                    <td>
-                      <!-- EDIT FUNCTION  -->
-                      <a href="#" data-target="#exampleModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="Edit user information" data-placement="left" >
-                        <i class="fas fa-pen" title="Edit user information"></i>
-                      </a>
-                      <!-- EDIT MODAL -->
-                      @if(Auth::user()->name == 'Human Resource')
-                        @include('layouts.edit.hr')
-                      @elseif(Auth::user()->name == 'Information Technology')
-                        @include('layouts.edit.it')
-                      @else
-                        @include('layouts.edit.other')
-                      @endif
-                      <!-- INVENTORY FUNCTION -->
-
-                      <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
-                        <i class="fas fa-th-list" title="User Accountability"></i>
-                      </a>
-
-                      <!-- <a data-inventory_id="{{$accountability->id}}" href="#" class="edit mx-3 editInventory" title="User Accountability" data-placement="left" >
-                        <i class="fas fa-th-list" title="User Accountability"></i>
-                      </a> -->
-                      <!-- INVENTORY MODAL -->
-                      @if(Auth::user()->name == 'Information Technology')
-                        @include('layouts.inventory.it')
-                      @else
-                        @include('layouts.inventory.other')
-                      @endif
-                      <!-- END OF INVENTORY MODAL -->
-
-                      <!-- LOGS FUNCTION -->
-                      <!-- <a href="#" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
-                        <i class="fas fa-info" title="View logs"></i>
-                      </a> -->
-                      <a href="#"  data-target="#sampleModal-{{$accountability->id}}" class="log mx-3"  data-toggle="modal" title="View logs" >
-                        <i class="fas fa-info" title="View logs"></i>
-                      </a>
-
-                      <!-- LOGS MODAL -->
-                      @include('layouts.log')
-                      <!-- END OF LOGS MODAL -->
-
-                      <a href="#" data-target="#activatemodal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
-                        <i class="fa fa-cog" title="Set user status"></i>
-                      </a>
-
-                      <!-- ACTIVE/RESIGN MODAL -->
-                      @include('layouts.status')
-                      <!-- END ACTIVE/RESIGN MODAL -->
-
-                      <!-- WORKING -->
-                      <!-- <a href="#" onclick="onClickModalRemark('{{$accountability->id}}')" data-target="#sampleModal" class="log mx-3"  data-toggle="modal" title="View logs" >
-                        <i class="fas fa-info" title="View logs"></i>
-                      </a> -->
-
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
-          </div>
+          @include('layouts.tabs.active')
           <!-- end of tab 1 -->
 
-          <!-- tab 2 is the form to add a new employee -->
+          <!-- Tab 2 is the incomplete list of the employees -->
+          @include('layouts.tabs.incomplete')
+          <!-- end of tab 1 -->
+
+          <!-- Tab 3 is the resigned list of the employees -->
+          @include('layouts.tabs.resign')
+          <!-- end of tab 1 -->
+
+          <!-- tab 4 is the form to add a new employee -->
           @include('layouts.tabs.add')
           <!-- End of Tab 2 -->         
         </div>
@@ -240,7 +154,7 @@
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script>
     $(document).ready( function () {
-        $('#myDataTable').DataTable();
+        $('.myDataTable').DataTable();
     } );
   </script>
   

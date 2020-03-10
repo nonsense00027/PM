@@ -29,7 +29,7 @@
 
             <div class="col-md-3 mb-3">
                 <label>Designation</label>
-                <input readonlytype="text" name="designation" id="editdesignation" class="form-control" value="{{$accountability->designation}}" required>
+                <input readonly type="text" name="designation" id="editdesignation" class="form-control" value="{{$accountability->designation}}" required>
             </div>
             </div>
 

@@ -81,7 +81,7 @@
                 <label>Email</label>
                 <input type="text" name="email" id="editemail" class="form-control" value="{{$accountability->email}}" required>
             </div>
-            <input type="hidden" name="status" value="true">
+            <!-- <input type="hidden" name="status" value="true"> -->
             <br>
             <div class="form-row">
                 <label id="remarksForPrint">Remarks</label>

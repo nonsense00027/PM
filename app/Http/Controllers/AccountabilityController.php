@@ -58,8 +58,7 @@ class AccountabilityController extends Controller
             // 'domain_pass'=>'required',
             // 'ip_address'=>'required',
             // 'mac_address'=>'required',
-            'email'=>'required',
-            'status'=>'required'
+            'email'=>'required'
           ]);
 
           $data2 = request()->validate([
