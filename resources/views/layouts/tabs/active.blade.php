@@ -44,7 +44,6 @@
                         @include('layouts.edit.other')
                       @endif
                       <!-- INVENTORY FUNCTION -->
-
                       <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >
                         <i class="fas fa-th-list" title="User Accountability"></i>
                       </a>

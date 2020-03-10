@@ -31,10 +31,12 @@
             </td>
             
             <td>
+                <center>
                 <!-- EDIT FUNCTION  -->
                 <a href="#" data-target="#exampleModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="Edit user information" data-placement="left" >
-                <i class="fas fa-pen" title="Edit user information"></i>
+                    <i class="fas fa-pen" title="Edit user information"></i>
                 </a>
+
                 <!-- EDIT MODAL -->
                 @if(Auth::user()->name == 'Human Resource')
                 @include('layouts.edit.hr')

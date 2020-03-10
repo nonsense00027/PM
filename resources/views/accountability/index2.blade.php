@@ -63,7 +63,7 @@
 @section('tableheading', 'Employees Accountability')
 @section('taboption')
         <li class="nav-item">
-            <a href="#list" class="nav-link active" role="tab" data-toggle="tab">Active</a>
+            <a href="#list" class="nav-link active" role="tab" data-toggle="tab">Complete</a>
         </li>
         <li class="nav-item">
             <a href="#inc" class="nav-link" role="tab" data-toggle="tab">Incomplete</a>
