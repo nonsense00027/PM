@@ -6,9 +6,9 @@
             <th class="col-0">ID</th>
             <th class="col-12">Name</th>
             <th>Company</th>
-            <th  class="col-0">Designation</th>
+            <th  class="col-3">Designation</th>
             <th>User Status</th>
-            <th class="col-0">Actions</th>
+            <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,14 +31,13 @@
             </td>
             
             <td>
-                <center>
                 <!-- EDIT FUNCTION  -->
-                <a href="#" data-target="#exampleModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="Edit user information" data-placement="left" >
+                <a href="#" data-target="#exampleModal-{{$accountability->id}}" class="edit mx-3"  data-toggle="modal" title="Edit user information" data-placement="left" >
                 <i class="fas fa-pen" title="Edit user information"></i>
                 </a>
                 <!-- EDIT MODAL -->
                 @include('layouts.edit.other')
-                
+
                 <!-- INVENTORY FUNCTION -->
 
                 <a href="#" data-target="#inventoryModal-{{$accountability->id}}" class="edit mx-3" data-toggle="modal" title="User Accountability" data-placement="left" >

@@ -12,69 +12,68 @@
     @method('PATCH')
     <div class="modal-body">
             <div class="form-row">
-            <div class="col-md-1 mb-3">
-                <label>ID</label>
-                <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" value="{{$accountability->id}}" required>
-            </div>
+                <div class="col-md-1 mb-3">
+                    <label>ID</label>
+                    <input readonly type="text" name="id" id="editid" class="form-control bg-outline-success" value="{{$accountability->id}}" required>
+                </div>
 
-            <div class="col-md-4 mb-3">
-                <label>Full Name</label>
-                <input readonly type="text" name="name" id="editname" class="form-control bg-outline-success" value="{{$accountability->name}}" required>
-            </div>
+                <div class="col-md-4 mb-3">
+                    <label>Full Name</label>
+                    <input readonly type="text" name="name" id="editname" class="form-control bg-outline-success" value="{{$accountability->name}}" required>
+                </div>
 
-            <div class="col-md-4 mb-3">
-                <label>Company</label>
-                <input readonly type="text" name="company" id="editcompany" class="form-control bg-outline-success" value="{{$accountability->company}}" required>
-            </div>
+                <div class="col-md-4 mb-3">
+                    <label>Company</label>
+                    <input readonly type="text" name="company" id="editcompany" class="form-control bg-outline-success" value="{{$accountability->company}}" required>
+                </div>
 
-            <div class="col-md-3 mb-3">
-                <label>Designation</label>
-                <input readonly type="text" name="designation" id="editdesignation" class="form-control" value="{{$accountability->designation}}" required>
-            </div>
-            </div>
-
-            <div class="form-row">
-            
-            <div class="col-md-3 mb-3">
-                <label>Location</label>
-                <input readonly type="text" name="location" id="editlocation" class="form-control" value="{{$accountability->location}}" required>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label>Computer Name</label>
-                <input readonly type="text" name="computer_name" id="editcomputer_name" class="form-control" value="{{$accountability->computer_name}}" required>
-            </div>
-
-            <div class="col-md-3 mb-3">
-                <label>Local User</label>
-                <input readonly type="text" name="local_user" id="editlocal_user" class="form-control" value="{{$accountability->local_user}}" required>
-            </div>
-
-            <div class="col-md-3 mb-3">
-                <label>Local Password</label>
-                <input readonly type="text" name="local_password" id="editlocal_password" class="form-control" value="{{$accountability->local_password}}" required>
-            </div>
+                <div class="col-md-3 mb-3">
+                    <label>Designation</label>
+                    <input readonly type="text" name="designation" id="editdesignation" class="form-control" value="{{$accountability->designation}}" required>
+                </div>
             </div>
 
             <div class="form-row">
-            <div class="col-md-3 mb-3">
-                <label>Domain Account</label>
-                <input readonly type="text" name="domain_acc" id="editdomain_acc" class="form-control" value="{{$accountability->domain_acc}}" required>
+                <div class="col-md-3 mb-3">
+                    <label>Location</label>
+                    <input readonly type="text" name="location" id="editlocation" class="form-control" value="{{$accountability->location}}" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label>Computer Name</label>
+                    <input readonly type="text" name="computer_name" id="editcomputer_name" class="form-control" value="{{$accountability->computer_name}}" required>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Local User</label>
+                    <input readonly type="text" name="local_user" id="editlocal_user" class="form-control" value="{{$accountability->local_user}}" required>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Local Password</label>
+                    <input readonly type="text" name="local_password" id="editlocal_password" class="form-control" value="{{$accountability->local_password}}" required>
+                </div>
             </div>
 
-            <div class="col-md-3 mb-3">
-                <label>Domain Password</label>
-                <input readonly type="text" name="domain_pass" id="editdomain_pass" class="form-control" value="{{$accountability->domain_pass}}" required>
-            </div>
+            <div class="form-row">
+                <div class="col-md-3 mb-3">
+                    <label>Domain Account</label>
+                    <input readonly type="text" name="domain_acc" id="editdomain_acc" class="form-control" value="{{$accountability->domain_acc}}" required>
+                </div>
 
-            <div class="col-md-3 mb-3">
-                <label>IP Address</label>
-                <input readonly type="text" name="ip_address" id="editip_address" class="form-control" value="{{$accountability->ip_address}}" required>
-            </div>
+                <div class="col-md-3 mb-3">
+                    <label>Domain Password</label>
+                    <input readonly type="text" name="domain_pass" id="editdomain_pass" class="form-control" value="{{$accountability->domain_pass}}" required>
+                </div>
 
-            <div class="col-md-3 mb-3">
-                <label>MAC Address</label>
-                <input readonly type="text" name="mac_address" id="editmac_address" class="form-control" value="{{$accountability->mac_address}}" required>
-            </div>
+                <div class="col-md-3 mb-3">
+                    <label>IP Address</label>
+                    <input readonly type="text" name="ip_address" id="editip_address" class="form-control" value="{{$accountability->ip_address}}" required>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>MAC Address</label>
+                    <input readonly type="text" name="mac_address" id="editmac_address" class="form-control" value="{{$accountability->mac_address}}" required>
+                </div>
             </div>
 
             <div class="form-row">
