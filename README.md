@@ -1,6 +1,6 @@
-# Accountability System
+<center> <h1>Accountability System</h1>
 
-__Client: FTC Group of Companies__
+__FTC Group of Companies__
 
 ![FTC logo](public/media/logo-favicon.png)
 
@@ -9,6 +9,7 @@ A project developed by
 Group 10 – Alvarez, Cañete, Clarido  
 College of Computer Studies  
 University of the Immaculate Conception
+</center>
 
 ## System Overview
 The system will store the accountabilities of the company’s employees to have it in a secure database and can be used in future refence. The users will have less time in managing and searching for specific employees in the list. The system also provides ready to print function and lessens the company use of paper.
@@ -55,8 +56,6 @@ You can easily fix this issue by running following artisan command to generate n
 ```$ php artisan key:generate```
 
 ![Docu 4](public/media/documentation/4.png)
-
-
 
 <!-- <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
