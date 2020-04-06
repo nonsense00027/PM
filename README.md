@@ -1,4 +1,5 @@
-<p align="center"><h1>Accountability System</h1>
+<center>
+<h1>Accountability System</h1>
 
 __FTC Group of Companies__
 
@@ -9,7 +10,7 @@ A project developed by
 Group 10 – Alvarez, Cañete, Clarido  
 College of Computer Studies  
 University of the Immaculate Conception
-</p>
+</center>
 
 ## System Overview
 The system will store the accountabilities of the company’s employees to have it in a secure database and can be used in future refence. The users will have less time in managing and searching for specific employees in the list. The system also provides ready to print function and lessens the company use of paper.
