@@ -29,7 +29,7 @@ Open terminal and run the following code while in the source code directory file
 
 ```$ php artisan migrate:fresh ```
 
-![Docu 1](public/media/documentation/1.png)
+![Docu 1](public/media/documentation/1.png)  
 For more info refer to this [link.](https://laravel.com/docs/5.8/migrations)
 
 After you finish migrating the database you can now run the following command below
