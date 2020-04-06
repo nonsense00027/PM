@@ -1,4 +1,64 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Accountability System
+
+__Client: FTC Group of Companies__
+
+![FTC logo](public/media/logo-favicon.png)
+
+A project developed by
+
+Group 10 – Alvarez, Cañete, Clarido  
+College of Computer Studies  
+University of the Immaculate Conception
+
+## System Overview
+The system will store the accountabilities of the company’s employees to have it in a secure database and can be used in future refence. The users will have less time in managing and searching for specific employees in the list. The system also provides ready to print function and lessens the company use of paper.
+
+## Prerequisite Software
+- [Laravel 7.x](https://laravel.com/docs/7.x)
+- [Node Package Manager](https://www.npmjs.com/get-npm)
+- [Composer v1.10.1](https://getcomposer.org/download/)
+- [PostgreSQL v12](https://www.postgresql.org/download/)
+
+## Installation
+Make sure to install all the prerequisite software needed. After the installation, open the source code in your desired text editor.
+
+Prepare your .env file and make sure it is inside the directory file of the source code.
+
+Open terminal and run the following code while in the source code directory file.
+
+```$ php artisan migrate:fresh ```
+
+![Docu 1](public/media/documentation/1.png)
+For more info refer to this [link.](https://laravel.com/docs/5.8/migrations)
+
+After you finish migrating the database you can now run the following command below
+
+```$ php artisan db:seed ```
+
+![Docu 2](public/media/documentation/2.png)
+For more info refer to this [link.](https://laravel.com/docs/5.8/seeding#running-seeders)
+
+**NOTE: Make sure to make your server up and running. Before running the application.**
+
+After you made all those commands. You can now run the application with the following command below.
+
+```$ php artisan serve```
+
+![Docu 3](public/media/documentation/3.png)
+
+## Troubleshooting in Installation
+
+You will get this error when you start with the fresh larval application and copy the .env.example file to .env but do not set the value of APP_KEY variable then .
+
+You can easily fix this issue by running following artisan command to generate new random key for your application :
+
+```$ php artisan key:generate```
+
+![Docu 4](public/media/documentation/4.png)
+
+
+
+<!-- <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -75,4 +135,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
