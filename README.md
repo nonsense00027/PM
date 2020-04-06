@@ -36,7 +36,7 @@ After you finish migrating the database you can now run the following command be
 
 ```$ php artisan db:seed ```
 
-![Docu 2](public/media/documentation/2.png)
+![Docu 2](public/media/documentation/2.png)  
 For more info refer to this [link.](https://laravel.com/docs/5.8/seeding#running-seeders)
 
 **NOTE: Make sure to make your server up and running. Before running the application.**
@@ -45,7 +45,7 @@ After you made all those commands. You can now run the application with the foll
 
 ```$ php artisan serve```
 
-![Docu 3](public/media/documentation/3.png)
+![Docu 3](public/media/documentation/3.png)  
 
 ## Troubleshooting in Installation
 
@@ -55,7 +55,7 @@ You can easily fix this issue by running following artisan command to generate n
 
 ```$ php artisan key:generate```
 
-![Docu 4](public/media/documentation/4.png)
+![Docu 4](public/media/documentation/4.png)  
 
 <!-- <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
